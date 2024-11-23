@@ -5,7 +5,7 @@ import path from 'path'
 
 export default defineConfig(() => ({
   // base: './',
-  base: '/brotato/',
+  base: '/brotatools/',
   build: {
     outDir: path.resolve(__dirname, 'docs'),
     rollupOptions: {
