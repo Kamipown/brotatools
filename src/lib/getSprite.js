@@ -1,7 +1,7 @@
 const spriteSheets = {
-  characters: ['url(/characters.png)', 768, 768, 96, 96],
-  stats: ['url(/stats.png)', 300, 240, 60, 60],
-  weapons: ['url(/weapons.png)', 864, 864, 96, 96],
+  characters: ['url(./characters.png)', 768, 768, 96, 96],
+  stats: ['url(./stats.png)', 300, 240, 60, 60],
+  weapons: ['url(./weapons.png)', 864, 864, 96, 96],
 }
 
 const getSprite = (spriteSheet, width, height, x, y) => {
