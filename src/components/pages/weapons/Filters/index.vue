@@ -1,73 +1,145 @@
 <template>
   <Panel>
-    <PanelSection title="Tiers">
-      <Checkbox text="Lowest tier" v-model="tier.lowestTier" />
-      <Checkbox text="All tiers" v-model="tier.allTiers" />
-      <Checkbox text="Tier I" v-model="tier.tier1" />
-      <Checkbox text="Tier II" v-model="tier.tier2" />
-      <Checkbox text="Tier III" v-model="tier.tier3" />
-      <Checkbox text="Tier IV" v-model="tier.tier4" />
+    <PanelSection title="Tiers" :resetable="tierResetable" @reset="resetTier">
+      <Checkbox text="Lowest tier" v-model="lowestTier" />
+      <Checkbox text="All tiers" v-model="allTiers" />
+      <div class="h-[1px] mx-4 my-2 bg-gray-900" />
+      <Checkbox textClass="text-gray-400" text="Tier I" v-model="tier1" />
+      <Checkbox textClass="text-blue-400" text="Tier II" v-model="tier2" />
+      <Checkbox textClass="text-purple-400" text="Tier III" v-model="tier3" />
+      <Checkbox textClass="text-red-400" text="Tier IV" v-model="tier4" />
     </PanelSection>
-    <PanelSection title="Classes">
-      <Checkbox text="Blade" v-model="weaponClass.blade" />
-      <Checkbox text="Blunt" v-model="weaponClass.blunt" />
-      <Checkbox text="Elemental" v-model="weaponClass.elemental" />
-      <Checkbox text="Ethereal" v-model="weaponClass.ethereal" />
-      <Checkbox text="Explosive" v-model="weaponClass.explosive" />
-      <Checkbox text="Gun" v-model="weaponClass.gun" />
-      <Checkbox text="Heavy" v-model="weaponClass.heavy" />
-      <Checkbox text="Legendary" v-model="weaponClass.legendary" />
-      <Checkbox text="Medical" v-model="weaponClass.medical" />
-      <Checkbox text="Medieval" v-model="weaponClass.medieval" />
-      <Checkbox text="Musical" v-model="weaponClass.musical" />
-      <Checkbox text="Naval" v-model="weaponClass.naval" />
-      <Checkbox text="Precise" v-model="weaponClass.precise" />
-      <Checkbox text="Primitive" v-model="weaponClass.primitive" />
-      <Checkbox text="Support" v-model="weaponClass.support" />
-      <Checkbox text="Tool" v-model="weaponClass.tool" />
-      <Checkbox text="Unarmed" v-model="weaponClass.unarmed" />
+    <PanelSection title="Types" :resetable="typeResetable" @reset="resetType">
+      <Checkbox text="Melee" v-model="melee" />
+      <Checkbox text="Ranged" v-model="ranged" />
     </PanelSection>
-    <PanelSection title="Types">
-      <Checkbox text="Melee" :value="type.melee" />
-      <Checkbox text="Ranged" :value="type.ranged" />
+    <PanelSection
+      title="Damage scaling"
+      :resetable="damageScalingResetable"
+      @reset="resetDamageScaling"
+    >
+      <Checkbox
+        :text="`${stat('meleeDamage')} Melee Damage`"
+        v-model="meleeDamage"
+      />
+      <Checkbox
+        :text="`${stat('rangedDamage')} Ranged Damage`"
+        v-model="rangedDamage"
+      />
+      <Checkbox
+        :text="`${stat('elementalDamage')} Elemental Damage`"
+        v-model="elementalDamage"
+      />
+      <Checkbox
+        :text="`${stat('engineering')} Engineering`"
+        v-model="engineering"
+      />
+      <div class="h-[1px] mx-4 my-2 bg-gray-900" />
+      <Checkbox :text="`${stat('armor')} Armor`" v-model="armor" />
+      <Checkbox
+        :text="`${stat('attackSpeed')} Attack Speed`"
+        v-model="attackSpeed"
+      />
+      <Checkbox :text="`${stat('curse')} Curse`" v-model="curse" />
+      <Checkbox
+        :text="`${stat('harvesting')} Harvesting`"
+        v-model="harvesting"
+      />
+      <Checkbox :text="`${stat('level')} Level`" v-model="level" />
+      <Checkbox :text="`${stat('lifeSteal')} Life Steal`" v-model="lifeSteal" />
+      <Checkbox :text="`${stat('luck')} Luck`" v-model="luck" />
+      <Checkbox :text="`${stat('maxHP')} Max HP`" v-model="maxHP" />
+      <Checkbox :text="`${stat('range')} Range`" v-model="range" />
+      <Checkbox :text="`${stat('speed')} Speed`" v-model="speed" />
+    </PanelSection>
+    <PanelSection
+      title="Classes"
+      :resetable="weaponClassResetable"
+      @reset="resetWeaponClass"
+    >
+      <Checkbox text="Blade" v-model="blade" />
+      <Checkbox text="Blunt" v-model="blunt" />
+      <Checkbox text="Elemental" v-model="elemental" />
+      <Checkbox text="Ethereal" v-model="ethereal" />
+      <Checkbox text="Explosive" v-model="explosive" />
+      <Checkbox text="Gun" v-model="gun" />
+      <Checkbox text="Heavy" v-model="heavy" />
+      <Checkbox text="Legendary" v-model="legendary" />
+      <Checkbox text="Medical" v-model="medical" />
+      <Checkbox text="Medieval" v-model="medieval" />
+      <Checkbox text="Musical" v-model="musical" />
+      <Checkbox text="Naval" v-model="naval" />
+      <Checkbox text="Precise" v-model="precise" />
+      <Checkbox text="Primitive" v-model="primitive" />
+      <Checkbox text="Support" v-model="support" />
+      <Checkbox text="Tool" v-model="tool" />
+      <Checkbox text="Unarmed" v-model="unarmed" />
     </PanelSection>
   </Panel>
 </template>
 
 <script setup>
 import { Checkbox, Panel, PanelSection } from '@/components'
+import useWeaponsFilter from './useWeaponsFilter'
 
-const tier = reactive({
-  lowestTier: true,
-  allTiers: false,
-  tier1: false,
-  tier2: false,
-  tier3: false,
-  tier4: false,
-})
+const store = useStore()
 
-const weaponClass = reactive({
-  blade: false,
-  blunt: false,
-  elemental: false,
-  ethereal: false,
-  explosive: false,
-  gun: false,
-  heavy: false,
-  legendary: false,
-  medical: false,
-  medieval: false,
-  musical: false,
-  naval: false,
-  precise: false,
-  primitive: false,
-  support: false,
-  tool: false,
-  unarmed: false,
-})
+const stat = (v) => `<span class="stat ${v}"></span>`
 
-const type = reactive({
-  melee: true,
-  ranged: true,
-})
+const lowestTier = useWeaponsFilter('tier', 'lowestTier')
+const allTiers = useWeaponsFilter('tier', 'allTiers')
+const tier1 = useWeaponsFilter('tier', 'tier1')
+const tier2 = useWeaponsFilter('tier', 'tier2')
+const tier3 = useWeaponsFilter('tier', 'tier3')
+const tier4 = useWeaponsFilter('tier', 'tier4')
+
+const melee = useWeaponsFilter('type', 'melee')
+const ranged = useWeaponsFilter('type', 'ranged')
+
+const meleeDamage = useWeaponsFilter('damageScaling', 'meleeDamage')
+const rangedDamage = useWeaponsFilter('damageScaling', 'rangedDamage')
+const elementalDamage = useWeaponsFilter('damageScaling', 'elementalDamage')
+const engineering = useWeaponsFilter('damageScaling', 'engineering')
+const armor = useWeaponsFilter('damageScaling', 'armor')
+const attackSpeed = useWeaponsFilter('damageScaling', 'attackSpeed')
+const curse = useWeaponsFilter('damageScaling', 'curse')
+const harvesting = useWeaponsFilter('damageScaling', 'harvesting')
+const level = useWeaponsFilter('damageScaling', 'level')
+const lifeSteal = useWeaponsFilter('damageScaling', 'lifeSteal')
+const luck = useWeaponsFilter('damageScaling', 'luck')
+const maxHP = useWeaponsFilter('damageScaling', 'maxHP')
+const range = useWeaponsFilter('damageScaling', 'range')
+const speed = useWeaponsFilter('damageScaling', 'speed')
+
+const blade = useWeaponsFilter('weaponClass', 'blade')
+const blunt = useWeaponsFilter('weaponClass', 'blunt')
+const elemental = useWeaponsFilter('weaponClass', 'elemental')
+const ethereal = useWeaponsFilter('weaponClass', 'ethereal')
+const explosive = useWeaponsFilter('weaponClass', 'explosive')
+const gun = useWeaponsFilter('weaponClass', 'gun')
+const heavy = useWeaponsFilter('weaponClass', 'heavy')
+const legendary = useWeaponsFilter('weaponClass', 'legendary')
+const medical = useWeaponsFilter('weaponClass', 'medical')
+const medieval = useWeaponsFilter('weaponClass', 'medieval')
+const musical = useWeaponsFilter('weaponClass', 'musical')
+const naval = useWeaponsFilter('weaponClass', 'naval')
+const precise = useWeaponsFilter('weaponClass', 'precise')
+const primitive = useWeaponsFilter('weaponClass', 'primitive')
+const support = useWeaponsFilter('weaponClass', 'support')
+const tool = useWeaponsFilter('weaponClass', 'tool')
+const unarmed = useWeaponsFilter('weaponClass', 'unarmed')
+
+const tierResetable = computed(() => store.getters['weapons/tierResetable'])
+const typeResetable = computed(() => store.getters['weapons/typeResetable'])
+const damageScalingResetable = computed(
+  () => store.getters['weapons/damageScalingResetable']
+)
+const weaponClassResetable = computed(
+  () => store.getters['weapons/weaponClassResetable']
+)
+
+const resetTier = () => store.dispatch('weapons/resetTier')
+const resetType = () => store.dispatch('weapons/resetType')
+const resetDamageScaling = () => store.dispatch('weapons/resetDamageScaling')
+const resetWeaponClass = () => store.dispatch('weapons/resetWeaponClass')
 </script>

@@ -24,7 +24,7 @@
           v-for="weapon in character.weapons"
           :name="weapon"
           :minWeaponTier="
-            ['Dwarf', 'King', 'Knight'].includes(character.name) ? 2 : 1
+            ['dwarf', 'king', 'knight'].includes(character.name) ? 2 : 1
           "
         />
       </div>
@@ -43,9 +43,7 @@ const props = defineProps({
 
 // const emits = defineEmits(['change'])
 
-const character = computed(() =>
-  characters.find(({ name }) => name === props.selected)
-)
+const character = computed(() => characters[props.selected])
 
 const imageStyle = computed(() =>
   getSprite(

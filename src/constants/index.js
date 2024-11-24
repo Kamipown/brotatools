@@ -1,5 +1,6 @@
 import characters from './characters'
-import classes from './classes'
+import stats from './stats'
+import weaponClasses from './weaponClasses'
 import weapons from './weapons'
 
-export { characters, classes, weapons }
+export { characters, stats, weaponClasses, weapons }

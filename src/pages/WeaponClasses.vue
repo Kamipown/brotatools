@@ -5,7 +5,11 @@
 </template>
 
 <script setup>
-import { OneColumn, TwoColumns, ThreeColumns } from '@/components/pages/classes'
+import {
+  OneColumn,
+  TwoColumns,
+  ThreeColumns,
+} from '@/components/pages/weaponClasses'
 
 const { width } = useWindowSize()
 </script>

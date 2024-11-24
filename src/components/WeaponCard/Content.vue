@@ -12,10 +12,10 @@
         </div>
         <div class="flex items-center gap-2">
           <p
-            v-for="c in props.weapon.classes"
+            v-for="weaponClassName in props.weapon.weaponClasses"
             class="leading-8 px-2 rounded bg-black/70"
           >
-            {{ c }}
+            {{ weaponClasses[weaponClassName].nameText }}
           </p>
         </div>
       </div>
@@ -49,6 +49,13 @@
 <script setup>
 import { WeaponSprite } from '@/components'
 import Row from './Row.vue'
+import { weaponClasses } from '@/constants'
+import {
+  getCooldownText,
+  getCriticalText,
+  getDamageText,
+  getRangeText,
+} from '@/lib'
 
 const props = defineProps({
   weapon: Object,
@@ -61,38 +68,28 @@ const nameText = computed(
   () => `${props.weapon.nameText} ${['I', 'II', 'III', 'IV'][props.tier - 1]}`
 )
 
-const span = (className, value) => `<span class="${className}">${value}</span>`
-
-const damage = computed(() => {
-  const damageBase = props.weapon.damageBase[index.value]
-  const projectiles =
-    props.weapon.projectiles[index.value] > 1
-      ? span('small', `x${props.weapon.projectiles[index.value]}`)
-      : ''
-  const damageScaling = `(${props.weapon.damageMultiplier[index.value]
-    .map((v, i) => {
-      return (
-        (v < 0 ? span('r', `${v}%`) : span('', `+${v}%`)) +
-        span(`stat ${props.weapon.damageScaling[i]}`, '')
-      )
-    })
-    .join(' ')})`
-  return `${damageBase}${projectiles} ${damageScaling}`
-})
-
-const critical = computed(
-  () =>
-    `x${props.weapon.critMultiplier[index.value]} (${
-      props.weapon.critChance[index.value]
-    }% chance)`
+const damage = computed(() =>
+  getDamageText(
+    props.weapon.damageBase[index.value],
+    props.weapon.projectiles[index.value],
+    props.weapon.damageMultiplier[index.value],
+    props.weapon.damageScaling
+  )
 )
-const cooldown = computed(() => `${props.weapon.cooldown[index.value]}s`)
 
-const range = computed(
-  () =>
-    `${props.weapon.range[index.value]} (${
-      props.weapon.rangeScaling === 'melee' ? 'Melee' : 'Ranged'
-    })`
+const critical = computed(() =>
+  getCriticalText(
+    props.weapon.critMultiplier[index.value],
+    props.weapon.critChance[index.value]
+  )
+)
+
+const cooldown = computed(() =>
+  getCooldownText(props.weapon.cooldown[index.value])
+)
+
+const range = computed(() =>
+  getRangeText(props.weapon.range[index.value], props.weapon.rangeScaling)
 )
 
 const showKnockback = computed(() => props.weapon.knockback.some((k) => k > 0))

@@ -37,7 +37,7 @@ const contentClassName = computed(
     ][props.tier - 1]
 )
 
-const weapon = computed(() => weapons.find(({ name }) => name === props.name))
+const weapon = computed(() => weapons[props.name])
 
 const exists = computed(() => weapon.value[`t${props.tier}`])
 </script>

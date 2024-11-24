@@ -12,12 +12,10 @@
 
 <script setup>
 import { WeaponCard } from '@/components'
-import { weapons } from '@/constants'
 
 const store = useStore()
 
 const weaponDetails = computed(() => store.state.weaponDetails)
-const weapon = weapons.find(({ name }) => name === weaponDetails)
 
 const close = () => store.dispatch('closeWeaponDetails')
 

@@ -27,7 +27,7 @@ import {
 } from '@/components/pages/characters'
 
 const state = reactive({
-  characterName: 'WellRounded',
+  characterName: 'wellRounded',
 })
 
 const content = ref(null)

@@ -24,7 +24,7 @@ const props = defineProps({
   minWeaponTier: Number,
 })
 
-const weapon = computed(() => weapons.find(({ name }) => name === props.name))
+const weapon = computed(() => weapons[props.name])
 
 const openWeaponDetails = () => store.dispatch('openWeaponDetails', props.name)
 </script>

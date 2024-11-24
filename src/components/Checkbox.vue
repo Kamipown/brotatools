@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-center gap-3 px-4 py-1 hover:bg-gray-900"
+    class="flex items-center gap-3 px-4 py-1 hover:bg-gray-900 cursor-pointer"
     @click.stop="toggle"
   >
     <div
@@ -12,7 +12,7 @@
     >
       <Icon v-if="props.modelValue" name="check" size="xs" />
     </div>
-    <p>{{ props.text }}</p>
+    <p :class="props.textClass" v-html="props.text" />
   </div>
 </template>
 
@@ -21,6 +21,7 @@ import { Icon } from '@/components'
 
 const props = defineProps({
   text: String,
+  textClass: String,
   modelValue: Boolean,
 })
 

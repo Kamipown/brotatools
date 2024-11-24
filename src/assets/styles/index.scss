@@ -86,58 +86,58 @@ input:-webkit-autofill:active {
     background-size: calc(300 * $size) calc(240 * $size);
     background-repeat: no-repeat;
   }
-  &.Armor::after {
+  &.armor::after {
     background-position: calc(0 * #{-$size}) calc(0 * #{-$size});
   }
-  &.AttackSpeed::after {
+  &.attackSpeed::after {
     background-position: calc(60 * #{-$size}) calc(0 * #{-$size});
   }
-  &.CritChance::after {
+  &.critChance::after {
     background-position: calc(120 * #{-$size}) calc(0 * #{-$size});
   }
-  &.Curse::after {
+  &.curse::after {
     background-position: calc(180 * #{-$size}) calc(0 * #{-$size});
   }
-  &.Damage::after {
-    background-position: calc(0 * #{-$size}) calc(60 * #{-$size});
-  }
-  &.Dodge::after {
-    background-position: calc(60 * #{-$size}) calc(60 * #{-$size});
-  }
-  &.ElementalDamage::after {
-    background-position: calc(120 * #{-$size}) calc(60 * #{-$size});
-  }
-  &.Engineering::after {
-    background-position: calc(180 * #{-$size}) calc(60 * #{-$size});
-  }
-  &.Harvesting::after {
-    background-position: calc(60 * #{-$size}) calc(120 * #{-$size});
-  }
-  &.HPRegeneration::after {
-    background-position: calc(0 * #{-$size}) calc(120 * #{-$size});
-  }
-  &.Level::after {
-    background-position: calc(120 * #{-$size}) calc(120 * #{-$size});
-  }
-  &.LifeSteal::after {
-    background-position: calc(180 * #{-$size}) calc(120 * #{-$size});
-  }
-  &.Luck::after {
-    background-position: calc(0 * #{-$size}) calc(180 * #{-$size});
-  }
-  &.MaxHP::after {
-    background-position: calc(60 * #{-$size}) calc(180 * #{-$size});
-  }
-  &.MeleeDamage::after {
-    background-position: calc(120 * #{-$size}) calc(180 * #{-$size});
-  }
-  &.Range::after {
-    background-position: calc(180 * #{-$size}) calc(180 * #{-$size});
-  }
-  &.RangedDamage::after {
+  &.rangedDamage::after {
     background-position: calc(240 * #{-$size}) calc(0 * #{-$size});
   }
-  &.Speed::after {
+  &.damage::after {
+    background-position: calc(0 * #{-$size}) calc(60 * #{-$size});
+  }
+  &.dodge::after {
+    background-position: calc(60 * #{-$size}) calc(60 * #{-$size});
+  }
+  &.elementalDamage::after {
+    background-position: calc(120 * #{-$size}) calc(60 * #{-$size});
+  }
+  &.engineering::after {
+    background-position: calc(180 * #{-$size}) calc(60 * #{-$size});
+  }
+  &.speed::after {
     background-position: calc(240 * #{-$size}) calc(60 * #{-$size});
+  }
+  &.hpRegeneration::after {
+    background-position: calc(0 * #{-$size}) calc(120 * #{-$size});
+  }
+  &.harvesting::after {
+    background-position: calc(60 * #{-$size}) calc(120 * #{-$size});
+  }
+  &.level::after {
+    background-position: calc(120 * #{-$size}) calc(120 * #{-$size});
+  }
+  &.lifeSteal::after {
+    background-position: calc(180 * #{-$size}) calc(120 * #{-$size});
+  }
+  &.luck::after {
+    background-position: calc(0 * #{-$size}) calc(180 * #{-$size});
+  }
+  &.maxHP::after {
+    background-position: calc(60 * #{-$size}) calc(180 * #{-$size});
+  }
+  &.meleeDamage::after {
+    background-position: calc(120 * #{-$size}) calc(180 * #{-$size});
+  }
+  &.range::after {
+    background-position: calc(180 * #{-$size}) calc(180 * #{-$size});
   }
 }

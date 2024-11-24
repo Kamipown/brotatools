@@ -22,7 +22,7 @@ const props = defineProps({
 const container = ref(null)
 const { width, height } = useElementSize(container)
 
-const weapon = computed(() => weapons.find(({ name }) => name === props.name))
+const weapon = computed(() => weapons[props.name])
 
 const classNames = [
   'bg-gray-800 ring-2 ring-gray-900',

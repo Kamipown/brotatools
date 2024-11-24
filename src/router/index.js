@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import { Characters, Classes, Items, Weapons } from '@/pages'
+import { Characters, WeaponClasses, Items, Weapons } from '@/pages'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -11,8 +11,8 @@ const router = createRouter({
     },
     {
       path: '/classes',
-      name: 'Classes',
-      component: Classes,
+      name: 'WeaponClasses',
+      component: WeaponClasses,
     },
     {
       path: '/items',

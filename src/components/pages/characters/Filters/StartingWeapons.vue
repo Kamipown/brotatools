@@ -31,14 +31,14 @@ const selectedStartingWeapon = computed(
 )
 
 const allStartingWeapons = computed(() =>
-  flatten(characters.map(({ weapons }) => weapons))
+  flatten(Object.values(characters).map(({ weapons }) => weapons))
 )
 
 const names = computed(() => uniq(allStartingWeapons.value).sort())
 
 const availableStartingWeapons = computed(() =>
   names.value.map((name) => {
-    const weapon = weapons.find((w) => w.name === name)
+    const weapon = weapons[name]
     return {
       name: weapon.name,
       nameText: weapon.nameText,

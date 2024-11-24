@@ -1,7 +1,7 @@
 import { stringSimilarity } from 'string-similarity-js'
 import { characters } from '@/constants'
 
-const list = characters.map(({ name, nameText }) => [
+const list = Object.values(characters).map(({ name, nameText }) => [
   name,
   nameText.toLowerCase(),
 ])

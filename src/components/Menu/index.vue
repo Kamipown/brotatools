@@ -4,7 +4,7 @@
     <nav class="flex h-full">
       <Link name="Characters" text="Characters" />
       <Link name="Weapons" text="Weapons" />
-      <Link name="Classes" text="Classes" />
+      <Link name="WeaponClasses" text="Classes" />
       <Link name="Items" text="Items" />
     </nav>
   </header>

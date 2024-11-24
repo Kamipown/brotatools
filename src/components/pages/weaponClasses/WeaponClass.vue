@@ -3,12 +3,14 @@
     <header
       class="flex items-center justify-between p-4 border-b border-gray-700"
     >
-      <p class="font-bold">{{ props.c.name }}</p>
-      <p class="text-gray-400">{{ props.c.weapons.length }} weapons</p>
+      <p class="font-bold">{{ props.weaponClass.nameText }}</p>
+      <p class="text-gray-400">
+        {{ props.weaponClass.weapons.length }} weapons
+      </p>
     </header>
     <div class="flex flex-col divide-y divide-gray-900">
       <div
-        v-for="(bonusList, index) in props.c.bonuses"
+        v-for="(bonusList, index) in props.weaponClass.bonuses"
         class="flex items-center gap-4 px-4 py-2"
       >
         <p class="w-6 font-semibold text-gray-400">{{ index + 2 }}:</p>
@@ -35,11 +37,11 @@ import { weapons } from '@/constants'
 const store = useStore()
 
 const props = defineProps({
-  c: Object,
+  weaponClass: Object,
 })
 
 const availableWeapons = computed(() =>
-  props.c.weapons.map((name) => weapons.find((weapon) => weapon.name === name))
+  props.weaponClass.weapons.map((name) => weapons[name])
 )
 
 const openWeaponDetails = (name) => store.dispatch('openWeaponDetails', name)

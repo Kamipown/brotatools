@@ -4,11 +4,11 @@ const red = (v) => `<span class="red">${v}</span>`
 const small = (v) => `<span class="small">${v}</span>`
 const stat = (v) => `<span class="stat ${v}"></span>`
 
-const weapons = [
-  {
-    name: 'Anchor',
+const weapons = {
+  anchor: {
+    name: 'anchor',
     nameText: 'Anchor',
-    classes: ['Naval', 'Heavy'],
+    weaponClasses: ['naval', 'heavy'],
     damageBase: [0, 45, 70, 110],
     damageMultiplier: [
       [0, 0],
@@ -16,7 +16,7 @@ const weapons = [
       [125, 90],
       [150, 125],
     ],
-    damageScaling: ['MeleeDamage', 'Curse'],
+    damageScaling: ['meleeDamage', 'curse'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 1.92, 1.86, 1.81],
     critMultiplier: [0, 1.5, 1.5, 1.5],
@@ -36,10 +36,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Brick',
+  brick: {
+    name: 'brick',
     nameText: 'Brick',
-    classes: ['Blunt'],
+    weaponClasses: ['blunt'],
     damageBase: [30, 60, 90, 120],
     damageMultiplier: [
       [50, 50],
@@ -47,7 +47,7 @@ const weapons = [
       [80, 80],
       [100, 100],
     ],
-    damageScaling: ['MeleeDamage', 'Engineering'],
+    damageScaling: ['meleeDamage', 'engineering'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.39, 1.39, 1.39, 1.39],
     critMultiplier: [1.5, 1.5, 1.5, 1.5],
@@ -80,13 +80,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'CactiClub',
+  cactiClub: {
+    name: 'cactiClub',
     nameText: 'Cacti Club',
-    classes: ['Primitive', 'Heavy'],
+    weaponClasses: ['primitive', 'heavy'],
     damageBase: [10, 20, 30, 50],
     damageMultiplier: [[80], [85], [90], [100]],
-    damageScaling: ['MeleeDamage'],
+    damageScaling: ['meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.66, 1.58, 1.51, 1.36],
     critMultiplier: [2, 2, 2, 2],
@@ -98,16 +98,16 @@ const weapons = [
     effects: [
       `Hitting an enemy spawns ${green('3')} projectiles dealing ${green(
         '50%'
-      )}${stat('RangedDamage')} damage.`,
+      )}${stat('rangedDamage')} damage.`,
       `Hitting an enemy spawns ${green('4')} projectiles dealing ${green(
         '60%'
-      )}${stat('RangedDamage')} damage.`,
+      )}${stat('rangedDamage')} damage.`,
       `Hitting an enemy spawns ${green('5')} projectiles dealing ${green(
         '70%'
-      )}${stat('RangedDamage')} damage.`,
+      )}${stat('rangedDamage')} damage.`,
       `Hitting an enemy spawns ${green('6')} projectiles dealing ${green(
         '80%'
-      )}${stat('RangedDamage')} damage.`,
+      )}${stat('rangedDamage')} damage.`,
     ],
     price: [20, 39, 74, 149],
     bounces: [0, 0, 0, 0],
@@ -119,10 +119,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'CaptainsSword',
+  captainsSword: {
+    name: 'captainsSword',
     nameText: "Captain's Sword",
-    classes: ['Naval', 'Blade'],
+    weaponClasses: ['naval', 'blade'],
     damageBase: [0, 0, 50, 80],
     damageMultiplier: [
       [0, 0],
@@ -130,7 +130,7 @@ const weapons = [
       [100, 100],
       [125, 125],
     ],
-    damageScaling: ['MeleeDamage', 'Curse'],
+    damageScaling: ['meleeDamage', 'curse'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0, 1.03, 0.95],
     critMultiplier: [0, 0, 2, 2],
@@ -159,10 +159,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Chainsaw',
+  chainsaw: {
+    name: 'chainsaw',
     nameText: 'Chainsaw',
-    classes: ['Blade', 'Tool'],
+    weaponClasses: ['blade', 'tool'],
     damageBase: [0, 0, 10, 20],
     damageMultiplier: [
       [0, 0, 0],
@@ -170,7 +170,7 @@ const weapons = [
       [75, 75, 75],
       [100, 100, 100],
     ],
-    damageScaling: ['MeleeDamage', 'Engineering', 'LifeSteal'],
+    damageScaling: ['meleeDamage', 'engineering', 'lifeSteal'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0, 0.53, 0.56],
     critMultiplier: [0, 0, 1.5, 1.5],
@@ -203,10 +203,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Chopper',
+  chopper: {
+    name: 'chopper',
     nameText: 'Chopper',
-    classes: ['Blade'],
+    weaponClasses: ['blade'],
     damageBase: [6, 12, 18, 30],
     damageMultiplier: [
       [50, 15],
@@ -214,7 +214,7 @@ const weapons = [
       [50, 25],
       [50, 30],
     ],
-    damageScaling: ['MeleeDamage', 'MaxHP'],
+    damageScaling: ['meleeDamage', 'maxHP'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0.99, 0.99, 0.96, 0.89],
     critMultiplier: [2, 2, 2, 2],
@@ -239,13 +239,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'CircularSaw',
+  circularSaw: {
+    name: 'circularSaw',
     nameText: 'Circular Saw',
-    classes: ['Blade', 'Medical'],
+    weaponClasses: ['blade', 'medical'],
     damageBase: [0, 10, 15, 25],
     damageMultiplier: [[0], [100], [100], [100]],
-    damageScaling: ['MeleeDamage'],
+    damageScaling: ['meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0.72, 0.67, 0.62],
     critMultiplier: [0, 2, 2, 2],
@@ -265,10 +265,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Claw',
+  claw: {
+    name: 'claw',
     nameText: 'Claw',
-    classes: ['Unarmed', 'Precise'],
+    weaponClasses: ['unarmed', 'precise'],
     damageBase: [5, 10, 15, 25],
     damageMultiplier: [
       [15, 50],
@@ -276,7 +276,7 @@ const weapons = [
       [25, 50],
       [30, 50],
     ],
-    damageScaling: ['AttackSpeed', 'MeleeDamage'],
+    damageScaling: ['attackSpeed', 'meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0.78, 0.74, 0.69, 0.61],
     critMultiplier: [2, 2.15, 2.3, 2.5],
@@ -296,10 +296,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'DexTroyer',
+  dexTroyer: {
+    name: 'dexTroyer',
     nameText: 'DEX-troyer',
-    classes: ['Legendary', 'Explosive'],
+    weaponClasses: ['legendary', 'explosive'],
     damageBase: [0, 0, 0, 100],
     damageMultiplier: [
       [0, 0],
@@ -307,7 +307,7 @@ const weapons = [
       [0, 0],
       [100, 100],
     ],
-    damageScaling: ['MeleeDamage', 'Engineering'],
+    damageScaling: ['meleeDamage', 'engineering'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0, 0, 1.33],
     critMultiplier: [0, 0, 0, 2],
@@ -325,7 +325,7 @@ const weapons = [
       )} chance to explode on hit.<br/>Hitting an enemy spawns a lightning projectile that bounces ${green(
         '5'
       )} times and deals ${green('30')} (${green('+100%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}) damage.`,
     ],
     price: [0, 0, 0, 315],
@@ -338,10 +338,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Drill',
+  drill: {
+    name: 'drill',
     nameText: 'Drill',
-    classes: ['Legendary', 'Precise'],
+    weaponClasses: ['legendary', 'precise'],
     damageBase: [0, 0, 0, 10],
     damageMultiplier: [
       [0, 0],
@@ -349,7 +349,7 @@ const weapons = [
       [0, 0],
       [100, 100],
     ],
-    damageScaling: ['MeleeDamage', 'Engineering'],
+    damageScaling: ['meleeDamage', 'engineering'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0, 0, 0.45],
     critMultiplier: [0, 0, 0, 2.5],
@@ -378,10 +378,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Excalibur',
+  excalibur: {
+    name: 'excalibur',
     nameText: 'Excalibur',
-    classes: ['Legendary', 'Blade'],
+    weaponClasses: ['legendary', 'blade'],
     damageBase: [0, 0, 0, 200],
     damageMultiplier: [
       [0, 0],
@@ -389,7 +389,7 @@ const weapons = [
       [0, 0],
       [200, 200],
     ],
-    damageScaling: ['MeleeDamage', 'MaxHP'],
+    damageScaling: ['meleeDamage', 'maxHP'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0, 0, 0.66],
     critMultiplier: [0, 0, 0, 2.5],
@@ -416,13 +416,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Fist',
+  fist: {
+    name: 'fist',
     nameText: 'Fist',
-    classes: ['Unarmed'],
+    weaponClasses: ['unarmed'],
     damageBase: [8, 16, 32, 64],
     damageMultiplier: [[100], [100], [100], [100]],
-    damageScaling: ['MeleeDamage'],
+    damageScaling: ['meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0.78, 0.73, 0.69, 0.59],
     critMultiplier: [1.5, 1.5, 1.5, 1.5],
@@ -442,13 +442,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'FlamingBrassKnuckles',
+  flamingBrassKnuckles: {
+    name: 'flamingBrassKnuckles',
     nameText: 'Flaming Brass Knuckles',
-    classes: ['Unarmed', 'Elemental'],
+    weaponClasses: ['unarmed', 'elemental'],
     damageBase: [0, 16, 32, 64],
     damageMultiplier: [[0], [100], [100], [100]],
-    damageScaling: ['MeleeDamage'],
+    damageScaling: ['meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0.73, 0.69, 0.59],
     critMultiplier: [0, 1.5, 1.5, 1.5],
@@ -460,13 +460,13 @@ const weapons = [
     effects: [
       '',
       `Deals ${green(`8${small('x5')}`)} (${green('+100%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}) burning damage.`,
       `Deals ${green(`12${small('x6')}`)} (${green('+100%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}) burning damage.`,
       `Deals ${green(`15${small('x7')}`)} (${green('+100%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}) burning damage.`,
     ],
     price: [0, 46, 86, 173],
@@ -479,13 +479,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'GhostAxe',
+  ghostAxe: {
+    name: 'ghostAxe',
     nameText: 'Ghost Axe',
-    classes: ['Ethereal'],
+    weaponClasses: ['ethereal'],
     damageBase: [12, 18, 24, 40],
     damageMultiplier: [[100], [100], [100], [100]],
-    damageScaling: ['MeleeDamage'],
+    damageScaling: ['meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.73, 1.66, 1.58, 1.51],
     critMultiplier: [2, 2, 2, 2],
@@ -518,13 +518,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'GhostFlint',
+  ghostFlint: {
+    name: 'ghostFlint',
     nameText: 'Ghost Flint',
-    classes: ['Ethereal'],
+    weaponClasses: ['ethereal'],
     damageBase: [6, 9, 12, 18],
     damageMultiplier: [[100], [100], [100], [100]],
-    damageScaling: ['MeleeDamage'],
+    damageScaling: ['meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.23, 1.17, 1.1, 1.04],
     critMultiplier: [2, 2, 2, 2],
@@ -557,13 +557,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Hammer',
+  hammer: {
+    name: 'hammer',
     nameText: 'Hammer',
-    classes: ['Blunt', 'Heavy'],
+    weaponClasses: ['blunt', 'heavy'],
     damageBase: [0, 35, 70, 110],
     damageMultiplier: [[0], [150], [175], [200]],
-    damageScaling: ['MeleeDamage'],
+    damageScaling: ['meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 1.67, 1.59, 1.5],
     critMultiplier: [0, 1.75, 1.75, 1.75],
@@ -588,13 +588,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Hand',
+  hand: {
+    name: 'hand',
     nameText: 'Hand',
-    classes: ['Unarmed', 'Support'],
+    weaponClasses: ['unarmed', 'support'],
     damageBase: [1, 1, 1, 1],
     damageMultiplier: [[50], [50], [50], [50]],
-    damageScaling: ['MeleeDamage'],
+    damageScaling: ['meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.01, 0.93, 0.86, 0.71],
     critMultiplier: [1.5, 1.5, 1.5, 1.5],
@@ -619,10 +619,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Hatchet',
+  hatchet: {
+    name: 'hatchet',
     nameText: 'Hatchet',
-    classes: ['Primitive'],
+    weaponClasses: ['primitive'],
     damageBase: [5, 10, 20, 40],
     damageMultiplier: [
       [100, 15],
@@ -630,7 +630,7 @@ const weapons = [
       [100, 15],
       [100, 15],
     ],
-    damageScaling: ['MeleeDamage', 'AttackSpeed'],
+    damageScaling: ['meleeDamage', 'attackSpeed'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0.68, 0.65, 0.62, 0.58],
     critMultiplier: [2, 2, 2, 2],
@@ -650,10 +650,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'HikingPole',
+  hikingPole: {
+    name: 'hikingPole',
     nameText: 'Hiking Pole',
-    classes: ['Support'],
+    weaponClasses: ['support'],
     damageBase: [12, 18, 24, 30],
     damageMultiplier: [
       [50, 10],
@@ -661,7 +661,7 @@ const weapons = [
       [50, 15],
       [50, 20],
     ],
-    damageScaling: ['MeleeDamage', 'Range'],
+    damageScaling: ['meleeDamage', 'range'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.42, 1.34, 1.25, 1.17],
     critMultiplier: [1.5, 1.5, 1.5, 1.5],
@@ -694,10 +694,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'JoustingLance',
+  joustingLance: {
+    name: 'joustingLance',
     nameText: 'Jousting Lance',
-    classes: ['Medieval'],
+    weaponClasses: ['medieval'],
     damageBase: [20, 25, 30, 50],
     damageMultiplier: [
       [50, 30],
@@ -705,7 +705,7 @@ const weapons = [
       [50, 40],
       [50, 50],
     ],
-    damageScaling: ['MeleeDamage', 'Speed'],
+    damageScaling: ['meleeDamage', 'speed'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.58, 1.5, 1.42, 1.33],
     critMultiplier: [2, 2, 2, 2],
@@ -730,13 +730,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Knife',
+  knife: {
+    name: 'knife',
     nameText: 'Knife',
-    classes: ['Precise'],
+    weaponClasses: ['precise'],
     damageBase: [6, 9, 12, 20],
     damageMultiplier: [[80], [80], [80], [80]],
-    damageScaling: ['MeleeDamage'],
+    damageScaling: ['meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.01, 0.93, 0.86, 0.78],
     critMultiplier: [2.5, 3, 3.5, 4],
@@ -756,13 +756,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'LightningShiv',
+  lightningShiv: {
+    name: 'lightningShiv',
     nameText: 'Lightning Shiv',
-    classes: ['Precise', 'Elemental'],
+    weaponClasses: ['precise', 'elemental'],
     damageBase: [3, 6, 9, 15],
     damageMultiplier: [[80], [80], [80], [80]],
-    damageScaling: ['MeleeDamage'],
+    damageScaling: ['meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.01, 0.93, 0.86, 0.78],
     critMultiplier: [2, 2, 2, 2],
@@ -774,21 +774,21 @@ const weapons = [
     effects: [
       `Hitting an enemy spawns a lightning projectile flying towards another random enemy and inflicts ${green(
         '5'
-      )} (${green('+80%')}${stat('ElementalDamage')}) damage.`,
+      )} (${green('+80%')}${stat('elementalDamage')}) damage.`,
       `Hitting an enemy spawns a lightning projectile flying towards another random enemy that bounces ${green(
         '1'
       )} times and inflicts ${green('6')} (${green('+80%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}) damage.`,
       `Hitting an enemy spawns a lightning projectile flying towards another random enemy that bounces ${green(
         '2'
       )} times and inflicts ${green('8')} (${green('+80%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}) damage.`,
       `Hitting an enemy spawns a lightning projectile flying towards another random enemy that bounces ${green(
         '3'
       )} times and inflicts ${green('11')} (${green('+80%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}) damage.`,
     ],
     price: [18, 36, 66, 142],
@@ -801,10 +801,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Lute',
+  lute: {
+    name: 'lute',
     nameText: 'Lute',
-    classes: ['Musical', 'Support'],
+    weaponClasses: ['musical', 'support'],
     damageBase: [4, 8, 12, 16],
     damageMultiplier: [
       [50, 10],
@@ -812,7 +812,7 @@ const weapons = [
       [50, 20],
       [50, 25],
     ],
-    damageScaling: ['MeleeDamage', 'Luck'],
+    damageScaling: ['meleeDamage', 'luck'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.31, 1.25, 1.2, 1.14],
     critMultiplier: [1.5, 1.5, 1.5, 1.5],
@@ -845,10 +845,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Mace',
+  mace: {
+    name: 'mace',
     nameText: 'Mace',
-    classes: ['Heavy', 'Medieval'],
+    weaponClasses: ['heavy', 'medieval'],
     damageBase: [0, 40, 60, 100],
     damageMultiplier: [
       [0, 0],
@@ -856,7 +856,7 @@ const weapons = [
       [100, -75],
       [100, -100],
     ],
-    damageScaling: ['MeleeDamage', 'AttackSpeed'],
+    damageScaling: ['meleeDamage', 'attackSpeed'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 1.39, 1.31, 1.23],
     critMultiplier: [0, 1.5, 1.5, 1.5],
@@ -881,10 +881,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Plank',
+  plank: {
+    name: 'plank',
     nameText: 'Plank',
-    classes: ['Explosive', 'Elemental'],
+    weaponClasses: ['explosive', 'elemental'],
     damageBase: [10, 15, 20, 25],
     damageMultiplier: [
       [50, 50, 50],
@@ -892,7 +892,7 @@ const weapons = [
       [70, 70, 70],
       [80, 80, 80],
     ],
-    damageScaling: ['MeleeDamage', 'ElementalDamage', 'Engineering'],
+    damageScaling: ['meleeDamage', 'elementalDamage', 'engineering'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.23, 1.14, 1.06, 0.98],
     critMultiplier: [2, 2, 2, 2],
@@ -917,10 +917,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'PlasmaSledge',
+  plasmaSledge: {
+    name: 'plasmaSledge',
     nameText: 'Plasma Sledge',
-    classes: ['Elemental', 'Explosive'],
+    weaponClasses: ['elemental', 'explosive'],
     damageBase: [0, 0, 80, 120],
     damageMultiplier: [
       [0, 0],
@@ -928,7 +928,7 @@ const weapons = [
       [150, 150],
       [200, 200],
     ],
-    damageScaling: ['MeleeDamage', 'ElementalDamage'],
+    damageScaling: ['meleeDamage', 'elementalDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0, 1.55, 1.49],
     critMultiplier: [0, 0, 1.75, 1.75],
@@ -953,13 +953,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'PowerFist',
+  powerFist: {
+    name: 'powerFist',
     nameText: 'Power Fist',
-    classes: ['Unarmed', 'Explosive'],
+    weaponClasses: ['unarmed', 'explosive'],
     damageBase: [0, 0, 40, 60],
     damageMultiplier: [[0], [0], [100], [100]],
-    damageScaling: ['MeleeDamage'],
+    damageScaling: ['meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0, 0.69, 0.59],
     critMultiplier: [0, 0, 1.5, 1.5],
@@ -984,13 +984,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Pruner',
+  pruner: {
+    name: 'pruner',
     nameText: 'Pruner',
-    classes: ['Support'],
+    weaponClasses: ['support'],
     damageBase: [10, 15, 20, 25],
     damageMultiplier: [[50], [65], [80], [100]],
-    damageScaling: ['MeleeDamage'],
+    damageScaling: ['meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.14, 1.06, 0.98, 0.89],
     critMultiplier: [1.25, 1.5, 1.75, 2],
@@ -1015,13 +1015,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Rock',
+  rock: {
+    name: 'rock',
     nameText: 'Rock',
-    classes: ['Primitive', 'Blunt'],
+    weaponClasses: ['primitive', 'blunt'],
     damageBase: [20, 35, 50, 70],
     damageMultiplier: [[100], [100], [100], [100]],
-    damageScaling: ['MeleeDamage'],
+    damageScaling: ['meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.68, 1.61, 1.53, 1.46],
     critMultiplier: [1.5, 1.5, 1.5, 1.5],
@@ -1046,13 +1046,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Scissors',
+  scissors: {
+    name: 'scissors',
     nameText: 'Scissors',
-    classes: ['Medical', 'Precise'],
+    weaponClasses: ['medical', 'precise'],
     damageBase: [5, 10, 15, 20],
     damageMultiplier: [[80], [80], [80], [80]],
-    damageScaling: ['MeleeDamage'],
+    damageScaling: ['meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.01, 0.98, 0.94, 0.86],
     critMultiplier: [2, 2.15, 2.3, 2.5],
@@ -1072,10 +1072,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Screwdriver',
+  screwdriver: {
+    name: 'screwdriver',
     nameText: 'Screwdriver',
-    classes: ['Tool'],
+    weaponClasses: ['tool'],
     damageBase: [8, 12, 16, 20],
     damageMultiplier: [
       [50, 50],
@@ -1083,7 +1083,7 @@ const weapons = [
       [50, 50],
       [50, 50],
     ],
-    damageScaling: ['MeleeDamage', 'Engineering'],
+    damageScaling: ['meleeDamage', 'engineering'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.05, 1, 0.97, 0.87],
     critMultiplier: [2, 2, 2, 2],
@@ -1095,16 +1095,16 @@ const weapons = [
     effects: [
       `A landmine spawns every ${green('12s')} dealing<br/>${green(
         '10'
-      )} (${green('+100%')} ${stat('Engineering')}) damage in an area.`,
+      )} (${green('+100%')} ${stat('engineering')}) damage in an area.`,
       `A landmine spawns every ${green('9s')} dealing<br/>${green(
         '10'
-      )} (${green('+100%')} ${stat('Engineering')}) damage in an area.`,
+      )} (${green('+100%')} ${stat('engineering')}) damage in an area.`,
       `A landmine spawns every ${green('6s')} dealing<br/>${green(
         '10'
-      )} (${green('+100%')} ${stat('Engineering')}) damage in an area.`,
+      )} (${green('+100%')} ${stat('engineering')}) damage in an area.`,
       `A landmine spawns every ${green('3s')} dealing<br/>${green(
         '10'
-      )} (${green('+100%')} ${stat('Engineering')}) damage in an area.`,
+      )} (${green('+100%')} ${stat('engineering')}) damage in an area.`,
     ],
     price: [10, 22, 45, 91],
     bounces: [0, 0, 0, 0],
@@ -1116,10 +1116,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Scythe',
+  scythe: {
+    name: 'scythe',
     nameText: 'Scythe',
-    classes: ['Legendary', 'Ethereal'],
+    weaponClasses: ['legendary', 'ethereal'],
     damageBase: [0, 0, 0, 150],
     damageMultiplier: [
       [0, 0],
@@ -1127,7 +1127,7 @@ const weapons = [
       [0, 0],
       [150, 100],
     ],
-    damageScaling: ['MeleeDamage', 'LifeSteal'],
+    damageScaling: ['meleeDamage', 'lifeSteal'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0, 0, 0.72],
     critMultiplier: [0, 0, 0, 2],
@@ -1156,10 +1156,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'SharpTooth',
+  sharpTooth: {
+    name: 'sharpTooth',
     nameText: 'Sharp Tooth',
-    classes: ['Primitive', 'Precise'],
+    weaponClasses: ['primitive', 'precise'],
     damageBase: [5, 8, 11, 15],
     damageMultiplier: [
       [50, 50],
@@ -1167,7 +1167,7 @@ const weapons = [
       [50, 80],
       [50, 100],
     ],
-    damageScaling: ['MeleeDamage', 'LifeSteal'],
+    damageScaling: ['meleeDamage', 'lifeSteal'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.14, 1.07, 1, 0.93],
     critMultiplier: [2, 2.15, 2.3, 2.5],
@@ -1192,10 +1192,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Sickle',
+  sickle: {
+    name: 'sickle',
     nameText: 'Sickle',
-    classes: ['Support'],
+    weaponClasses: ['support'],
     damageBase: [5, 8, 12, 15],
     damageMultiplier: [
       [80, 10],
@@ -1203,7 +1203,7 @@ const weapons = [
       [80, 20],
       [80, 25],
     ],
-    damageScaling: ['MeleeDamage', 'Harvesting'],
+    damageScaling: ['meleeDamage', 'harvesting'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0.87, 0.82, 0.77, 0.7],
     critMultiplier: [2, 2, 2, 2],
@@ -1228,13 +1228,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Spear',
+  spear: {
+    name: 'spear',
     nameText: 'Spear',
-    classes: ['Primitive'],
+    weaponClasses: ['primitive'],
     damageBase: [15, 25, 40, 60],
     damageMultiplier: [[100], [100], [100], [100]],
-    damageScaling: ['MeleeDamage'],
+    damageScaling: ['meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.52, 1.4, 1.28, 1.24],
     critMultiplier: [2, 2, 2, 2],
@@ -1254,13 +1254,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'SpikyShield',
+  spikyShield: {
+    name: 'spikyShield',
     nameText: 'Spiky Shield',
-    classes: ['Medieval', 'Blunt'],
+    weaponClasses: ['medieval', 'blunt'],
     damageBase: [10, 15, 20, 30],
     damageMultiplier: [[100], [125], [150], [200]],
-    damageScaling: ['Armor'],
+    damageScaling: ['armor'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.16, 1.16, 1.16, 1.01],
     critMultiplier: [2, 2, 2, 2],
@@ -1280,10 +1280,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Spoon',
+  spoon: {
+    name: 'spoon',
     nameText: 'Spoon',
-    classes: ['Blunt'],
+    weaponClasses: ['blunt'],
     damageBase: [10, 15, 20, 25],
     damageMultiplier: [
       [50, 15],
@@ -1291,7 +1291,7 @@ const weapons = [
       [50, 25],
       [50, 25],
     ],
-    damageScaling: ['MeleeDamage', 'MaxHP'],
+    damageScaling: ['meleeDamage', 'maxHP'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.06, 0.99, 0.93, 0.86],
     critMultiplier: [2, 2.25, 2.5, 3],
@@ -1316,13 +1316,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Stick',
+  stick: {
+    name: 'stick',
     nameText: 'Stick',
-    classes: ['Primitive'],
+    weaponClasses: ['primitive'],
     damageBase: [8, 9, 10, 12],
     damageMultiplier: [[100], [100], [100], [100]],
-    damageScaling: ['MeleeDamage'],
+    damageScaling: ['meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.29, 1.22, 1.15, 1.09],
     critMultiplier: [1.5, 1.5, 1.5, 1.5],
@@ -1355,13 +1355,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Sword',
+  sword: {
+    name: 'sword',
     nameText: 'Sword',
-    classes: ['Blade', 'Medieval'],
+    weaponClasses: ['blade', 'medieval'],
     damageBase: [0, 25, 40, 60],
     damageMultiplier: [[0], [100], [100], [100]],
-    damageScaling: ['MeleeDamage'],
+    damageScaling: ['meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 1.28, 1.13, 0.98],
     critMultiplier: [0, 2, 2, 2],
@@ -1386,13 +1386,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'ThiefDagger',
+  thiefDagger: {
+    name: 'thiefDagger',
     nameText: 'Thief Dagger',
-    classes: ['Precise'],
+    weaponClasses: ['precise'],
     damageBase: [6, 12, 18, 30],
     damageMultiplier: [[50], [50], [50], [50]],
-    damageScaling: ['MeleeDamage'],
+    damageScaling: ['meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.01, 0.93, 0.86, 0.73],
     critMultiplier: [2, 2, 2, 2],
@@ -1425,10 +1425,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'ThunderSword',
+  thunderSword: {
+    name: 'thunderSword',
     nameText: 'Thunder Sword',
-    classes: ['Blade', 'Elemental'],
+    weaponClasses: ['blade', 'elemental'],
     damageBase: [0, 0, 30, 60],
     damageMultiplier: [
       [0, 0],
@@ -1436,7 +1436,7 @@ const weapons = [
       [125, 125],
       [150, 150],
     ],
-    damageScaling: ['MeleeDamage', 'ElementalDamage'],
+    damageScaling: ['meleeDamage', 'elementalDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0, 1.21, 1.06],
     critMultiplier: [0, 0, 2, 2],
@@ -1451,12 +1451,12 @@ const weapons = [
       `Hitting an enemy spawns ${green(
         '2'
       )} projectiles that slow and damage enemies by ${green('100%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}.`,
       `Hitting an enemy spawns ${green(
         '4'
       )} projectiles that slow and damage enemies by ${green('100%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}.`,
     ],
     price: [0, 0, 119, 238],
@@ -1469,10 +1469,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Torch',
+  torch: {
+    name: 'torch',
     nameText: 'Torch',
-    classes: ['Primitive', 'Elemental'],
+    weaponClasses: ['primitive', 'elemental'],
     damageBase: [1, 1, 1, 1],
     damageMultiplier: [
       [50, 50],
@@ -1480,7 +1480,7 @@ const weapons = [
       [80, 80],
       [100, 100],
     ],
-    damageScaling: ['MeleeDamage', 'ElementalDamage'],
+    damageScaling: ['meleeDamage', 'elementalDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.1, 1.04, 0.95, 0.8],
     critMultiplier: [1.5, 1.5, 1.5, 1.5],
@@ -1491,18 +1491,18 @@ const weapons = [
     lifeSteal: [0, 0, 0, 0],
     effects: [
       `Deals ${green(`3${small('x3')}`)} (${green('+100%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}) burning damage.`,
       `Deals ${green(`5${small('x5')}`)} (${green('+100%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}) burning damage.`,
       `Deals ${green(`8${small('x6')}`)} (${green('+100%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}) burning damage.<br/>Burning spreads to ${green(
         '1'
       )} additional nearby enemy.`,
       `Deals ${green('12x9')} (${green('+100%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}) burning damage.<br/>Burning spreads to ${green(
         '2'
       )} additional nearby enemies.`,
@@ -1517,10 +1517,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Trident',
+  trident: {
+    name: 'trident',
     nameText: 'Trident',
-    classes: ['Naval', 'Medieval'],
+    weaponClasses: ['naval', 'medieval'],
     damageBase: [0, 30, 50, 80],
     damageMultiplier: [
       [0, 0],
@@ -1528,7 +1528,7 @@ const weapons = [
       [100, 30],
       [100, 50],
     ],
-    damageScaling: ['MeleeDamage', 'Curse'],
+    damageScaling: ['meleeDamage', 'curse'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 1.58, 1.5, 1.41],
     critMultiplier: [0, 2, 2, 2],
@@ -1553,10 +1553,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'WarHammer',
+  warHammer: {
+    name: 'warHammer',
     nameText: 'War Hammer',
-    classes: ['Blunt', 'Heavy'],
+    weaponClasses: ['blunt', 'heavy'],
     damageBase: [0, 0, 100, 180],
     damageMultiplier: [
       [0, 0],
@@ -1564,7 +1564,7 @@ const weapons = [
       [150, 100],
       [200, 150],
     ],
-    damageScaling: ['MeleeDamage', 'Engineering'],
+    damageScaling: ['meleeDamage', 'engineering'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0, 2.11, 1.95],
     critMultiplier: [0, 0, 1.5, 1.5],
@@ -1589,13 +1589,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Wrench',
+  wrench: {
+    name: 'wrench',
     nameText: 'Wrench',
-    classes: ['Tool'],
+    weaponClasses: ['tool'],
     damageBase: [12, 16, 20, 24],
     damageMultiplier: [[100], [100], [100], [100]],
-    damageScaling: ['MeleeDamage'],
+    damageScaling: ['meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.7, 1.64, 1.55, 1.49],
     critMultiplier: [2, 2, 2, 2],
@@ -1620,10 +1620,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Quarterstaff',
+  quarterstaff: {
+    name: 'quarterstaff',
     nameText: 'Quarterstaff',
-    classes: ['Primitive', 'Medieval'],
+    weaponClasses: ['primitive', 'medieval'],
     damageBase: [10, 15, 20, 30],
     damageMultiplier: [
       [75, 50],
@@ -1631,7 +1631,7 @@ const weapons = [
       [100, 85],
       [125, 100],
     ],
-    damageScaling: ['Level', 'MeleeDamage'],
+    damageScaling: ['level', 'meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.42, 1.25, 1.09, 0.92],
     critMultiplier: [1.5, 1.5, 1.5, 1.5],
@@ -1664,13 +1664,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Blunderbuss',
+  blunderbuss: {
+    name: 'blunderbuss',
     nameText: 'Blunderbuss',
-    classes: ['Naval', 'Gun'],
+    weaponClasses: ['naval', 'gun'],
     damageBase: [0, 25, 50, 80],
     damageMultiplier: [[0], [100], [125], [150]],
-    damageScaling: ['RangedDamage'],
+    damageScaling: ['rangedDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 5.2, 5.2, 5.2],
     critMultiplier: [0, 2, 2.25, 2.5],
@@ -1695,10 +1695,10 @@ const weapons = [
     piercing: [2, 2, 2, 2],
     piercingScaling: [-25, -25, -25, -25],
   },
-  {
-    name: 'ChainGun',
+  chainGun: {
+    name: 'chainGun',
     nameText: 'Chain Gun',
-    classes: ['Legendary', 'Gun'],
+    weaponClasses: ['legendary', 'gun'],
     damageBase: [0, 0, 0, 2],
     damageMultiplier: [
       [0, 0],
@@ -1706,7 +1706,7 @@ const weapons = [
       [0, 0],
       [100, 100],
     ],
-    damageScaling: ['RangedDamage', 'Engineering'],
+    damageScaling: ['rangedDamage', 'engineering'],
     projectiles: [3, 3, 3, 3],
     cooldown: [0, 0, 0, 0.073],
     critMultiplier: [0, 0, 0, 1.5],
@@ -1731,10 +1731,10 @@ const weapons = [
     piercing: [1, 1, 1, 1],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Crossbow',
+  crossbow: {
+    name: 'crossbow',
     nameText: 'Crossbow',
-    classes: ['Precise', 'Medieval'],
+    weaponClasses: ['precise', 'medieval'],
     damageBase: [10, 12, 15, 18],
     damageMultiplier: [
       [50, 10],
@@ -1742,7 +1742,7 @@ const weapons = [
       [50, 10],
       [50, 10],
     ],
-    damageScaling: ['RangedDamage', 'Range'],
+    damageScaling: ['rangedDamage', 'range'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.13, 1.13, 1.13, 1.13],
     critMultiplier: [1.5, 1.75, 2, 2.25],
@@ -1767,13 +1767,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [0, 0, 0, 0],
   },
-  {
-    name: 'DoubleBarrelShotgun',
+  doubleBarrelShotgun: {
+    name: 'doubleBarrelShotgun',
     nameText: 'Double Barrel Shotgun',
-    classes: ['Gun'],
+    weaponClasses: ['gun'],
     damageBase: [3, 6, 9, 9],
     damageMultiplier: [[80], [85], [90], [100]],
-    damageScaling: ['RangedDamage'],
+    damageScaling: ['rangedDamage'],
     projectiles: [4, 4, 4, 6],
     cooldown: [1.37, 1.28, 1.2, 1.2],
     critMultiplier: [2, 2, 2, 2],
@@ -1793,13 +1793,13 @@ const weapons = [
     piercing: [2, 2, 2, 3],
     piercingScaling: [-30, -30, -30, -30],
   },
-  {
-    name: 'Fireball',
+  fireball: {
+    name: 'fireball',
     nameText: 'Fireball',
-    classes: ['Explosive', 'Elemental'],
+    weaponClasses: ['explosive', 'elemental'],
     damageBase: [0, 5, 10, 20],
     damageMultiplier: [[0], [25], [50], [75]],
-    damageScaling: ['ElementalDamage'],
+    damageScaling: ['elementalDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 1.12, 1.03, 0.87],
     critMultiplier: [0, 1.5, 1.5, 1.5],
@@ -1812,13 +1812,13 @@ const weapons = [
       '',
       `Projectiles explode on hit.<br/>Deals ${green(
         `5${small('x3')}`
-      )} (${green('+100%')}${stat('ElementalDamage')}) burning damage.`,
+      )} (${green('+100%')}${stat('elementalDamage')}) burning damage.`,
       `Projectiles explode on hit.<br/>Deals ${green(
         `6${small('x4')}`
-      )} (${green('+100%')}${stat('ElementalDamage')}) burning damage.`,
+      )} (${green('+100%')}${stat('elementalDamage')}) burning damage.`,
       `Projectiles explode on hit.<br/>Deals ${green(
         `8${small('x5')}`
-      )} (${green('+100%')}${stat('ElementalDamage')}) burning damage.`,
+      )} (${green('+100%')}${stat('elementalDamage')}) burning damage.`,
     ],
     price: [0, 36, 66, 140],
     bounces: [0, 0, 0, 0],
@@ -1830,13 +1830,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Flamethrower',
+  flamethrower: {
+    name: 'flamethrower',
     nameText: 'Flamethrower',
-    classes: ['Elemental', 'Heavy'],
+    weaponClasses: ['elemental', 'heavy'],
     damageBase: [0, 1, 1, 1],
     damageMultiplier: [[0], [1], [1], [1]],
-    damageScaling: ['ElementalDamage'],
+    damageScaling: ['elementalDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0.12, 0.12, 0.09],
     critMultiplier: [0, 2, 2, 2],
@@ -1848,13 +1848,13 @@ const weapons = [
     effects: [
       '',
       `Deals ${green(`1${small('x3')}`)} (${green('+100%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}) burning damage.`,
       `Deals ${green(`3${small('x5')}`)} (${green('+100%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}) burning damage.`,
       `Deals ${green(`5${small('x8')}`)} (${green('+100%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}) burning damage.`,
     ],
     price: [0, 56, 103, 207],
@@ -1867,10 +1867,10 @@ const weapons = [
     piercing: [99, 99, 99, 99],
     piercingScaling: [-100, -100, -100, -100],
   },
-  {
-    name: 'Flute',
+  flute: {
+    name: 'flute',
     nameText: 'Flute',
-    classes: ['Musical'],
+    weaponClasses: ['musical'],
     damageBase: [5, 8, 11, 15],
     damageMultiplier: [
       [50, 10],
@@ -1878,7 +1878,7 @@ const weapons = [
       [50, 20],
       [50, 25],
     ],
-    damageScaling: ['RangedDamage', 'Luck'],
+    damageScaling: ['rangedDamage', 'luck'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.2, 1.12, 1.03, 0.95],
     critMultiplier: [1.5, 1.5, 1.5, 1.5],
@@ -1911,13 +1911,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'GatlingLaser',
+  gatlingLaser: {
+    name: 'gatlingLaser',
     nameText: 'Gatling Laser',
-    classes: ['Legendary', 'Heavy'],
+    weaponClasses: ['legendary', 'heavy'],
     damageBase: [0, 0, 0, 10],
     damageMultiplier: [[0], [0], [0], [100]],
-    damageScaling: ['RangedDamage'],
+    damageScaling: ['rangedDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0, 0, 0.073],
     critMultiplier: [0, 0, 0, 3],
@@ -1937,13 +1937,13 @@ const weapons = [
     piercing: [0, 0, 0, 3],
     piercingScaling: [-25, -25, -25, -25],
   },
-  {
-    name: 'GhostScepter',
+  ghostScepter: {
+    name: 'ghostScepter',
     nameText: 'Ghost Scepter',
-    classes: ['Ethereal'],
+    weaponClasses: ['ethereal'],
     damageBase: [10, 15, 20, 30],
     damageMultiplier: [[100], [100], [100], [100]],
-    damageScaling: ['RangedDamage'],
+    damageScaling: ['rangedDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0.98, 0.93, 0.88, 0.83],
     critMultiplier: [2, 2, 2, 2],
@@ -1976,13 +1976,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'GrenadeLauncher',
+  grenadeLauncher: {
+    name: 'grenadeLauncher',
     nameText: 'Grenade Launcher',
-    classes: ['Heavy', 'Explosive'],
+    weaponClasses: ['heavy', 'explosive'],
     damageBase: [0, 12, 18, 30],
     damageMultiplier: [[0], [100], [100], [100]],
-    damageScaling: ['RangedDamage'],
+    damageScaling: ['rangedDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0.37, 0.37, 0.37],
     critMultiplier: [0, 2.5, 3, 3.5],
@@ -2013,10 +2013,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'HarpoonGun',
+  harpoonGun: {
+    name: 'harpoonGun',
     nameText: 'Harpoon Gun',
-    classes: ['Naval', 'Gun'],
+    weaponClasses: ['naval', 'gun'],
     damageBase: [0, 5, 10, 20],
     damageMultiplier: [
       [0, 0],
@@ -2024,7 +2024,7 @@ const weapons = [
       [100, 100],
       [100, 100],
     ],
-    damageScaling: ['RangedDamage', 'MeleeDamage'],
+    damageScaling: ['rangedDamage', 'meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0.82, 0.73, 0.65],
     critMultiplier: [0, 1.5, 1.5, 1.5],
@@ -2049,13 +2049,13 @@ const weapons = [
     piercing: [0, 3, 4, 5],
     piercingScaling: [-25, -25, -25, -25],
   },
-  {
-    name: 'Icicle',
+  icicle: {
+    name: 'icicle',
     nameText: 'Icicle',
-    classes: ['Precise', 'Elemental'],
+    weaponClasses: ['precise', 'elemental'],
     damageBase: [10, 20, 30, 40],
     damageMultiplier: [[100], [100], [100], [100]],
-    damageScaling: ['ElementalDamage'],
+    damageScaling: ['elementalDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.03, 0.95, 0.87, 0.7],
     critMultiplier: [2, 2, 2.5, 3],
@@ -2075,13 +2075,13 @@ const weapons = [
     piercing: [1, 1, 1, 1],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Javelin',
+  javelin: {
+    name: 'javelin',
     nameText: 'Javelin',
-    classes: ['Primitive'],
+    weaponClasses: ['primitive'],
     damageBase: [8, 12, 16, 20],
     damageMultiplier: [[100], [100], [100], [100]],
-    damageScaling: ['MeleeDamage'],
+    damageScaling: ['meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.2, 1.12, 1.03, 0.95],
     critMultiplier: [2.5, 2.75, 3, 3.25],
@@ -2106,13 +2106,13 @@ const weapons = [
     piercing: [2, 3, 4, 5],
     piercingScaling: [-25, -25, -25, -25],
   },
-  {
-    name: 'LaserGun',
+  laserGun: {
+    name: 'laserGun',
     nameText: 'Laser Gun',
-    classes: ['Gun'],
+    weaponClasses: ['gun'],
     damageBase: [40, 55, 70, 100],
     damageMultiplier: [[400], [450], [500], [600]],
-    damageScaling: ['RangedDamage'],
+    damageScaling: ['rangedDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.98, 1.9, 1.82, 1.65],
     critMultiplier: [2, 2, 2, 2],
@@ -2132,13 +2132,13 @@ const weapons = [
     piercing: [1, 1, 1, 1],
     piercingScaling: [-25, -25, -25, -25],
   },
-  {
-    name: 'MedicalGun',
+  medicalGun: {
+    name: 'medicalGun',
     nameText: 'Medical Gun',
-    classes: ['Medical', 'Gun'],
+    weaponClasses: ['medical', 'gun'],
     damageBase: [10, 15, 20, 30],
     damageMultiplier: [[100], [100], [100], [100]],
-    damageScaling: ['RangedDamage'],
+    damageScaling: ['rangedDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0.87, 0.77, 0.65, 0.53],
     critMultiplier: [2, 2, 2, 2],
@@ -2158,13 +2158,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Minigun',
+  minigun: {
+    name: 'minigun',
     nameText: 'Minigun',
-    classes: ['Heavy', 'Gun'],
+    weaponClasses: ['heavy', 'gun'],
     damageBase: [0, 0, 1, 3],
     damageMultiplier: [[0], [0], [50], [75]],
-    damageScaling: ['RangedDamage'],
+    damageScaling: ['rangedDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0, 0.09, 0.073],
     critMultiplier: [0, 0, 1.75, 2],
@@ -2184,10 +2184,10 @@ const weapons = [
     piercing: [0, 0, 1, 2],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'NuclearLauncher',
+  nuclearLauncher: {
+    name: 'nuclearLauncher',
     nameText: 'Nuclear Launcher',
-    classes: ['Heavy', 'Explosive'],
+    weaponClasses: ['heavy', 'explosive'],
     damageBase: [0, 0, 60, 120],
     damageMultiplier: [
       [0, 0],
@@ -2195,7 +2195,7 @@ const weapons = [
       [100, 100],
       [100, 100],
     ],
-    damageScaling: ['RangedDamage', 'ElementalDamage'],
+    damageScaling: ['rangedDamage', 'elementalDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0, 2.12, 2.12],
     critMultiplier: [0, 0, 2, 2],
@@ -2220,13 +2220,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Obliterator',
+  obliterator: {
+    name: 'obliterator',
     nameText: 'Obliterator',
-    classes: ['Gun', 'Heavy'],
+    weaponClasses: ['gun', 'heavy'],
     damageBase: [0, 0, 250, 350],
     damageMultiplier: [[0], [0], [1000], [1500]],
-    damageScaling: ['RangedDamage'],
+    damageScaling: ['rangedDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0, 3.23, 3.23],
     critMultiplier: [0, 0, 2, 2],
@@ -2246,10 +2246,10 @@ const weapons = [
     piercing: [0, 0, 99, 99],
     piercingScaling: [0, 0, 0, 0],
   },
-  {
-    name: 'ParticleAccelerator',
+  particleAccelerator: {
+    name: 'particleAccelerator',
     nameText: 'Particle Accelerator',
-    classes: ['Heavy', 'Elemental'],
+    weaponClasses: ['heavy', 'elemental'],
     damageBase: [0, 0, 60, 120],
     damageMultiplier: [
       [0, 0],
@@ -2257,7 +2257,7 @@ const weapons = [
       [100, 100],
       [100, 100],
     ],
-    damageScaling: ['ElementalDamage', 'Engineering'],
+    damageScaling: ['elementalDamage', 'engineering'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0, 1.95, 1.62],
     critMultiplier: [0, 0, 2, 2],
@@ -2270,14 +2270,14 @@ const weapons = [
       '',
       '',
       `Deals ${green(`8${small('x8')}`)} (${green('+100%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}) burning damage.<br/>Slows enemies by ${green(
         '1%'
       )} on hit for every ${green(
         '1'
       )} Engineering you have.<br/>Can't bounce.`,
       `Deals ${green(`10${small('x10')}`)} (${green('+100%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}) burning damage.<br/>Slows enemies by ${green(
         '2%'
       )} on hit for every ${green(
@@ -2294,13 +2294,13 @@ const weapons = [
     piercing: [99, 99, 99, 99],
     piercingScaling: [0, 0, 0, 0],
   },
-  {
-    name: 'Pistol',
+  pistol: {
+    name: 'pistol',
     nameText: 'Pistol',
-    classes: ['Gun'],
+    weaponClasses: ['gun'],
     damageBase: [12, 20, 30, 50],
     damageMultiplier: [[100], [100], [100], [100]],
-    damageScaling: ['RangedDamage'],
+    damageScaling: ['rangedDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.2, 1.12, 1.03, 0.87],
     critMultiplier: [2, 2, 2, 2],
@@ -2320,10 +2320,10 @@ const weapons = [
     piercing: [1, 1, 1, 1],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'PotatoThrower',
+  potatoThrower: {
+    name: 'potatoThrower',
     nameText: 'Potato Thrower',
-    classes: ['Support'],
+    weaponClasses: ['support'],
     damageBase: [0, 1, 1, 1],
     damageMultiplier: [
       [0, 0],
@@ -2331,7 +2331,7 @@ const weapons = [
       [25, 20],
       [25, 20],
     ],
-    damageScaling: ['RangedDamage', 'MaxHP'],
+    damageScaling: ['rangedDamage', 'maxHP'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0.45, 0.37, 0.25],
     critMultiplier: [0, 1.5, 1.5, 1.5],
@@ -2351,13 +2351,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Revolver',
+  revolver: {
+    name: 'revolver',
     nameText: 'Revolver',
-    classes: ['Gun'],
+    weaponClasses: ['gun'],
     damageBase: [15, 20, 25, 40],
     damageMultiplier: [[100], [130], [165], [200]],
-    damageScaling: ['RangedDamage'],
+    damageScaling: ['rangedDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0.43, 0.42, 0.4, 0.38],
     critMultiplier: [2, 2, 2, 2],
@@ -2382,13 +2382,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'RocketLauncher',
+  rocketLauncher: {
+    name: 'rocketLauncher',
     nameText: 'Rocket Launcher',
-    classes: ['Heavy', 'Explosive'],
+    weaponClasses: ['heavy', 'explosive'],
     damageBase: [0, 30, 50, 80],
     damageMultiplier: [[0], [100], [100], [100]],
-    damageScaling: ['RangedDamage'],
+    damageScaling: ['rangedDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 1.78, 1.37, 1.03],
     critMultiplier: [0, 2, 2, 2],
@@ -2413,13 +2413,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Shredder',
+  shredder: {
+    name: 'shredder',
     nameText: 'Shredder',
-    classes: ['Gun', 'Explosive'],
+    weaponClasses: ['gun', 'explosive'],
     damageBase: [5, 10, 15, 25],
     damageMultiplier: [[50], [50], [50], [50]],
-    damageScaling: ['RangedDamage'],
+    damageScaling: ['rangedDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.3, 1.22, 1.13, 1.05],
     critMultiplier: [2, 2, 2, 2],
@@ -2444,13 +2444,13 @@ const weapons = [
     piercing: [3, 3, 3, 3],
     piercingScaling: [0, 0, 0, 0],
   },
-  {
-    name: 'Shuriken',
+  shuriken: {
+    name: 'shuriken',
     nameText: 'Shuriken',
-    classes: ['Precise'],
+    weaponClasses: ['precise'],
     damageBase: [6, 8, 10, 15],
     damageMultiplier: [[25], [34], [42], [50]],
-    damageScaling: ['MeleeDamage'],
+    damageScaling: ['meleeDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0.87, 0.83, 0.8, 0.7],
     critMultiplier: [1.5, 1.5, 1.5, 1.5],
@@ -2475,13 +2475,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Slingshot',
+  slingshot: {
+    name: 'slingshot',
     nameText: 'Slingshot',
-    classes: ['Primitive'],
+    weaponClasses: ['primitive'],
     damageBase: [10, 13, 16, 20],
     damageMultiplier: [[80], [80], [80], [80]],
-    damageScaling: ['RangedDamage'],
+    damageScaling: ['rangedDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [1.22, 1.17, 1.13, 1.1],
     critMultiplier: [2, 2, 2, 2],
@@ -2501,13 +2501,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Smg',
+  smg: {
+    name: 'smg',
     nameText: 'SMG',
-    classes: ['Gun'],
+    weaponClasses: ['gun'],
     damageBase: [3, 4, 5, 8],
     damageMultiplier: [[50], [60], [70], [80]],
-    damageScaling: ['RangedDamage'],
+    damageScaling: ['rangedDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0.17, 0.17, 0.17, 0.15],
     critMultiplier: [1.5, 1.5, 1.5, 1.5],
@@ -2527,10 +2527,10 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'SniperGun',
+  sniperGun: {
+    name: 'sniperGun',
     nameText: 'Sniper Gun',
-    classes: ['Gun', 'Precise'],
+    weaponClasses: ['gun', 'precise'],
     damageBase: [0, 0, 50, 80],
     damageMultiplier: [
       [0, 0],
@@ -2538,7 +2538,7 @@ const weapons = [
       [100, 20],
       [100, 30],
     ],
-    damageScaling: ['RangedDamage', 'Range'],
+    damageScaling: ['rangedDamage', 'range'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0, 0, 2.4, 2.4],
     critMultiplier: [0, 0, 3, 4],
@@ -2552,10 +2552,10 @@ const weapons = [
       '',
       `Hitting an enemy spawns ${green('5')} projectiles dealing ${green(
         '5'
-      )} (${green('+10%')}${stat('Range')}).`,
+      )} (${green('+10%')}${stat('range')}).`,
       `Hitting an enemy spawns ${green('8')} projectiles dealing ${green(
         '5'
-      )} (${green('+15%')}${stat('Range')}).`,
+      )} (${green('+15%')}${stat('range')}).`,
     ],
     price: [0, 0, 115, 245],
     bounces: [0, 0, 0, 0],
@@ -2567,13 +2567,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Taser',
+  taser: {
+    name: 'taser',
     nameText: 'Taser',
-    classes: ['Support', 'Elemental'],
+    weaponClasses: ['support', 'elemental'],
     damageBase: [61, 62, 63, 124],
     damageMultiplier: [[80], [70], [60], [50]],
-    damageScaling: ['ElementalDamage'],
+    damageScaling: ['elementalDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0.95, 0.95, 0.95, 0.95],
     critMultiplier: [2, 2, 2, 2],
@@ -2598,13 +2598,13 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-  {
-    name: 'Wand',
+  wand: {
+    name: 'wand',
     nameText: 'Wand',
-    classes: ['Elemental'],
+    weaponClasses: ['elemental'],
     damageBase: [1, 1, 1, 1],
     damageMultiplier: [[50], [65], [80], [100]],
-    damageScaling: ['ElementalDamage'],
+    damageScaling: ['elementalDamage'],
     projectiles: [1, 1, 1, 1],
     cooldown: [0.87, 0.78, 0.7, 0.53],
     critMultiplier: [2, 2, 2, 2],
@@ -2615,16 +2615,16 @@ const weapons = [
     lifeSteal: [0, 0, 0, 0],
     effects: [
       `Deals ${green(`3${small('x3')}`)} (${green('+100%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}) burning damage.`,
       `Deals ${green(`5${small('x5')}`)} (${green('+100%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}) burning damage.`,
       `Deals ${green(`8${small('x6')}`)} (${green('+100%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}) burning damage.`,
       `Deals ${green(`12${small('x9')}`)} (${green('+100%')}${stat(
-        'ElementalDamage'
+        'elementalDamage'
       )}) burning damage.`,
     ],
     price: [12, 26, 52, 105],
@@ -2637,6 +2637,6 @@ const weapons = [
     piercing: [0, 0, 0, 0],
     piercingScaling: [-50, -50, -50, -50],
   },
-]
+}
 
 export default weapons
