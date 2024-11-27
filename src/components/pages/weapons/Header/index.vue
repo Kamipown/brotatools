@@ -1,10 +1,23 @@
 <template>
   <div class="flex flex-shrink-0 h-12 bg-gray-950 border-b border-gray-700">
-    <label class="flex items-center flex-[1] gap-4 px-4 cursor-text">
-      <Icon class="text-gray-400" name="magnifying-glass" size="sm" />
+    <label class="flex items-center flex-[1] gap-2 px-2 cursor-text">
+      <div
+        v-if="search.length"
+        class="flex items-center justify-center p-2 rounded hover:bg-gray-900 active:bg-gray-800 cursor-pointer"
+        @click="search = ''"
+      >
+        <Icon name="xmark" size="sm" />
+      </div>
+      <Icon
+        v-else
+        class="mx-2 text-gray-400"
+        name="magnifying-glass"
+        size="sm"
+      />
       <input
         class="flex-[1] h-full bg-transparent border-none"
         type="text"
+        spellcheck="false"
         v-model="search"
       />
     </label>

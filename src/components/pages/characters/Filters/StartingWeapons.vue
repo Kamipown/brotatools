@@ -1,22 +1,19 @@
 <template>
-  <div>
-    <p class="p-2 text-sm font-bold">Can start with</p>
-    <ul class="d divide-y divide-gray-900">
-      <li
-        v-for="weapon in availableStartingWeapons"
-        class="flex items-center gap-3 px-2 py-1 cursor-pointer"
-        :class="{
-          'hover:bg-gray-900': selectedStartingWeapon !== weapon.name,
-          'bg-blue-950': selectedStartingWeapon === weapon.name,
-        }"
-        @click="() => store.dispatch('setSelectedStartingWeapon', weapon.name)"
-      >
-        <WeaponSprite class="w-8 h-8" :name="weapon.name" />
-        <p class="basis-full">{{ weapon.nameText }}</p>
-        <p class="font-semibold text-xs text-gray-400">{{ weapon.count }}</p>
-      </li>
-    </ul>
-  </div>
+  <ul class="divide-y divide-gray-900">
+    <li
+      v-for="weapon in availableStartingWeapons"
+      class="flex items-center gap-3 px-2 py-1 cursor-pointer"
+      :class="{
+        'hover:bg-gray-900': selectedStartingWeapon !== weapon.name,
+        'bg-blue-950': selectedStartingWeapon === weapon.name,
+      }"
+      @click="() => store.dispatch('setSelectedStartingWeapon', weapon.name)"
+    >
+      <WeaponSprite class="w-8 h-8" :name="weapon.name" />
+      <p class="basis-full">{{ weapon.nameText }}</p>
+      <p class="font-semibold text-xs text-gray-400">{{ weapon.count }}</p>
+    </li>
+  </ul>
 </template>
 
 <script setup>

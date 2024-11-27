@@ -18,6 +18,7 @@
       :resetable="damageScalingResetable"
       @reset="resetDamageScaling"
     >
+      <FilterMode class="mx-4 mb-4" v-model="damageScalingInclusive" />
       <Checkbox
         :text="`${stat('meleeDamage')} Melee Damage`"
         v-model="meleeDamage"
@@ -57,6 +58,7 @@
       :resetable="weaponClassResetable"
       @reset="resetWeaponClass"
     >
+      <FilterMode class="mx-4 mb-4" v-model="weaponClassInclusive" />
       <Checkbox text="Blade" v-model="blade" />
       <Checkbox text="Blunt" v-model="blunt" />
       <Checkbox text="Elemental" v-model="elemental" />
@@ -79,7 +81,7 @@
 </template>
 
 <script setup>
-import { Checkbox, Panel, PanelSection } from '@/components'
+import { Checkbox, FilterMode, Panel, PanelSection } from '@/components'
 import useWeaponsFilter from './useWeaponsFilter'
 
 const store = useStore()
@@ -96,6 +98,10 @@ const tier4 = useWeaponsFilter('tier', 'tier4')
 const melee = useWeaponsFilter('type', 'melee')
 const ranged = useWeaponsFilter('type', 'ranged')
 
+const damageScalingInclusive = computed({
+  get: () => store.state.weapons.damageScalingInclusive,
+  set: (value) => store.dispatch('weapons/setDamageScalingInclusive', value),
+})
 const meleeDamage = useWeaponsFilter('damageScaling', 'meleeDamage')
 const rangedDamage = useWeaponsFilter('damageScaling', 'rangedDamage')
 const elementalDamage = useWeaponsFilter('damageScaling', 'elementalDamage')
@@ -111,6 +117,10 @@ const maxHP = useWeaponsFilter('damageScaling', 'maxHP')
 const range = useWeaponsFilter('damageScaling', 'range')
 const speed = useWeaponsFilter('damageScaling', 'speed')
 
+const weaponClassInclusive = computed({
+  get: () => store.state.weapons.weaponClassInclusive,
+  set: (value) => store.dispatch('weapons/setWeaponClassInclusive', value),
+})
 const blade = useWeaponsFilter('weaponClass', 'blade')
 const blunt = useWeaponsFilter('weaponClass', 'blunt')
 const elemental = useWeaponsFilter('weaponClass', 'elemental')

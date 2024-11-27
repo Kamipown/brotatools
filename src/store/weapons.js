@@ -129,7 +129,9 @@ const state = () => ({
   ordering: 'Name',
   tier: { ...defaultTier },
   type: { ...defaultType },
+  damageScalingInclusive: true,
   damageScaling: { ...defaultDamageScaling },
+  weaponClassInclusive: true,
   weaponClass: { ...defaultWeaponClass },
 })
 
@@ -179,9 +181,13 @@ const getters = {
     const included = entries
       .filter((entry) => entry[1])
       .map((entry) => entry[0])
-    return getters.typesApplied.filter((weapon) =>
-      included.some((value) => weapon.damageScaling.includes(value))
-    )
+    return getters.typesApplied.filter((weapon) => {
+      if (state.damageScalingInclusive) {
+        return !included.some((value) => !weapon.damageScaling.includes(value))
+      } else {
+        return included.some((value) => weapon.damageScaling.includes(value))
+      }
+    })
   },
   weaponClassesApplied: (state, getters) => {
     const entries = Object.entries(state.weaponClass)
@@ -191,12 +197,21 @@ const getters = {
     const included = entries
       .filter((entry) => entry[1])
       .map((entry) => entry[0])
-    return getters.damageScalingsApplied.filter((weapon) =>
-      included.some((value) => weapon.weaponClasses.includes(value))
-    )
+    return getters.damageScalingsApplied.filter((weapon) => {
+      if (state.weaponClassInclusive) {
+        return !included.some((value) => !weapon.weaponClasses.includes(value))
+      } else {
+        return included.some((value) => weapon.weaponClasses.includes(value))
+      }
+    })
   },
   sortApplied: (state, getters) => {
     return sortMap[state.ordering](getters.weaponClassesApplied)
+  },
+  searchApplied: (state, getters) => {
+    return getters.sortApplied.filter(({ nameText }) =>
+      nameText.toLowerCase().includes(state.search.toLowerCase())
+    )
   },
   tierResetable: (state) => {
     return state.tier.lowestTier !== true
@@ -205,16 +220,18 @@ const getters = {
     return state.type.melee !== state.type.ranged
   },
   damageScalingResetable: (state) => {
-    return Object.values(state.damageScaling).some((value) => value)
+    return (
+      !state.damageScalingInclusive ||
+      Object.values(state.damageScaling).some((value) => value)
+    )
   },
   weaponClassResetable: (state) => {
-    return Object.values(state.weaponClass).some((value) => value)
+    return (
+      !state.weaponClassInclusive ||
+      Object.values(state.weaponClass).some((value) => value)
+    )
   },
 }
-
-// if (a.price !== b.price) {
-//   return a.price - b.price
-// }
 
 const actions = {
   setSearch: ({ state }, value) => {
@@ -280,8 +297,14 @@ const actions = {
   setType: ({ state }, { field, value }) => {
     state.type[field] = value
   },
+  setDamageScalingInclusive: ({ state }, value) => {
+    state.damageScalingInclusive = value
+  },
   setDamageScaling: ({ state }, { field, value }) => {
     state.damageScaling[field] = value
+  },
+  setWeaponClassInclusive: ({ state }, value) => {
+    state.weaponClassInclusive = value
   },
   setWeaponClass: ({ state }, { field, value }) => {
     state.weaponClass[field] = value
@@ -293,9 +316,11 @@ const actions = {
     state.type = { ...defaultType }
   },
   resetDamageScaling: ({ state }) => {
+    state.damageScalingInclusive = true
     state.damageScaling = { ...defaultDamageScaling }
   },
   resetWeaponClass: ({ state }) => {
+    state.weaponClassInclusive = true
     state.weaponClass = { ...defaultWeaponClass }
   },
 }

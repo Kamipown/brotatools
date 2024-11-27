@@ -107,7 +107,7 @@ const characters = {
     texts: [
       `${green('+100')} Luck`,
       `${green('Luck')} modifications are increased by ${green('25%')}`,
-      `${green('75%')} chance to deal ${green('1')} (15%${stat('Luck')}) damage to a random enemy when you pick up a material`,
+      `${green('75%')} chance to deal ${green('1')} (15%${stat('luck')}) damage to a random enemy when you pick up a material`,
       `${red('-60%')} Attack Speed`,
       `${red('-50%')} XP Gain`,
     ],
@@ -388,7 +388,7 @@ const characters = {
     texts: [
       `${green('+50')} Luck`,
       `${green('+1 Explosion Damage')} when picking up a consumable while at maximum health`,
-      `Consumable have a ${green('100%')} chance to explode for ${green('10')} (+500% ${stat('MeleeDamage')}) damage when picked up`,
+      `Consumable have a ${green('100%')} chance to explode for ${green('10')} (+500% ${stat('meleeDamage')}) damage when picked up`,
       `${red('+25%')} Items Price`,
       `${red('-25%')} XP Gain`,
     ],
@@ -414,7 +414,7 @@ const characters = {
     texts: [
       `${green('+10')} HP Regeneration`,
       `${green('+10%')} Life Steal`,
-      `${green('100%')} chance to deal ${green('10')} (100% ${stat('MaxHP')}) damage to a random enemy when you heal`,
+      `${green('100%')} chance to deal ${green('10')} (100% ${stat('maxHP')}) damage to a random enemy when you heal`,
       `${red('Damage')} modifications are reduced by ${red('50%')}`,
     ],
     weapons: ['scissors', 'chopper', 'thiefDagger', 'stick', 'knife', 'ghostFlint', 'sharpTooth', 'pruner', 'hatchet', 'rock', 'spikyShield', 'lightningShiv', 'spoon', 'ghostScepter', 'medicalGun', 'smg', 'wand', 'icicle', 'slingshot', 'crossbow'],
@@ -527,7 +527,7 @@ const characters = {
       `${green('+15')} HP Regeneration`,
       `${green('+10')} Armor`,
       `${green('HP Regeneration')} modifications are increased by ${green('50%')}`,
-      `You explode for ${green('30')} (+300% ${stat('MeleeDamage')} +300% ${stat('RangedDamage')} +300% ${stat('ElementalDamage')}) damage when you take damage`,
+      `You explode for ${green('30')} (+300% ${stat('meleeDamage')} +300% ${stat('rangedDamage')} +300% ${stat('elementalDamage')}) damage when you take damage`,
       `You can't equip weapons`,
     ],
     weapons: [],
@@ -716,7 +716,7 @@ const characters = {
     texts: [
       `${green('+35')} Luck`,
       `${green('+200%')} damage from non elemental sources against burning targets`,
-      `Consumables explodes for 5x${green('1')} (+100%${stat('ElementalDamage')}) burning damage when picked up`,
+      `Consumables explodes for 5x${green('1')} (+100%${stat('elementalDamage')}) burning damage when picked up`,
       `You start with ${green('1 Scared Sausage')}`,
       `${red('+100%')} Enemy health`,
       `${red('Elemental Damage')} modifications are reduced by ${red('75%')}`,
@@ -813,7 +813,7 @@ const characters = {
     name: 'ogre',
     nameText: 'Ogre',
     texts: [
-      `Enemies taking double their max health as damage explode for ${green('15')} (+50%${stat('MaxHP')} ${red('-50%')}${stat('AttackSpeed')}) damage`,
+      `Enemies taking double their max health as damage explode for ${green('15')} (+50%${stat('maxHP')} ${red('-50%')}${stat('attackSpeed')}) damage`,
       `${green('+10')} Melee Damage`,
       `You can't equip ranged weapons`,
       `${red('-50%')} Attack Speed`,
@@ -826,7 +826,7 @@ const characters = {
     name: 'romantic',
     nameText: 'Romantic',
     texts: [
-      `Hitting an enemy that has less than ${green('25%')} health has a ${green('5%')} (50%${stat('MaxHP')}) chance to charm it for ${green('8')} seconds`,
+      `Hitting an enemy that has less than ${green('25%')} health has a ${green('5%')} (50%${stat('maxHP')}) chance to charm it for ${green('8')} seconds`,
       `${green('+50 Range')} with melee weapons`,
       `${red('-3% Damage')} for every ${purple('5 Curse')} you have`,
       `${red('-1 Armor')} for every ${purple('5 Curse')} you have`,

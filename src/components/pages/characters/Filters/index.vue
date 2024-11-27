@@ -1,11 +1,12 @@
 <template>
-  <aside
-    class="flex-shrink-0 w-96 bg-gray-950 border-r border-gray-700 overflow-auto"
-  >
-    <StartingWeapons />
-  </aside>
+  <Panel>
+    <PanelSection title="Starting weapons">
+      <StartingWeapons />
+    </PanelSection>
+  </Panel>
 </template>
 
 <script setup>
+import { Panel, PanelSection } from '@/components'
 import StartingWeapons from './StartingWeapons.vue'
 </script>
