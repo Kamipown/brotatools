@@ -3,7 +3,7 @@
     <PanelSection title="Tiers" :resetable="tierResetable" @reset="resetTier">
       <Checkbox text="Lowest tier" v-model="lowestTier" />
       <Checkbox text="All tiers" v-model="allTiers" />
-      <div class="h-[1px] mx-4 my-2 bg-gray-900" />
+      <PanelSeparator />
       <Checkbox textClass="text-gray-400" text="Tier I" v-model="tier1" />
       <Checkbox textClass="text-blue-400" text="Tier II" v-model="tier2" />
       <Checkbox textClass="text-purple-400" text="Tier III" v-model="tier3" />
@@ -35,7 +35,7 @@
         :text="`${stat('engineering')} Engineering`"
         v-model="engineering"
       />
-      <div class="h-[1px] mx-4 my-2 bg-gray-900" />
+      <PanelSeparator />
       <Checkbox :text="`${stat('armor')} Armor`" v-model="armor" />
       <Checkbox
         :text="`${stat('attackSpeed')} Attack Speed`"
@@ -81,7 +81,13 @@
 </template>
 
 <script setup>
-import { Checkbox, FilterMode, Panel, PanelSection } from '@/components'
+import {
+  Checkbox,
+  FilterMode,
+  Panel,
+  PanelSection,
+  PanelSeparator,
+} from '@/components'
 import useWeaponsFilter from './useWeaponsFilter'
 
 const store = useStore()

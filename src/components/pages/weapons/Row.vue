@@ -13,13 +13,10 @@
       <div class="flex flex-col flex-[4] gap-1 pr-8">
         <p class="font-bold">{{ props.weapon.nameText }}</p>
         <div class="flex gap-2">
-          <p
+          <Tag
             v-for="weaponClass in props.weapon.weaponClasses"
-            class="leading-8 px-2 rounded bg-black/70 hover:bg-black/40 active:bg-black/20 font-medium text-sm text-gray-400 hover:text-gray-50"
-            @click.stop
-          >
-            {{ weaponClasses[weaponClass].nameText }}
-          </p>
+            :text="weaponClasses[weaponClass].nameText"
+          />
         </div>
       </div>
       <p class="flex-[5] font-medium" v-html="damage" />
@@ -32,7 +29,7 @@
 </template>
 
 <script setup>
-import { WeaponSprite } from '@/components'
+import { Tag, WeaponSprite } from '@/components'
 import { weaponClasses } from '@/constants'
 import {
   getCooldownText,

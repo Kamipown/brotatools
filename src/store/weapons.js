@@ -49,7 +49,7 @@ const defaultWeaponClass = {
 }
 
 const sortMap = {
-  'Attack speed': (weapons) =>
+  attackSpeed: (weapons) =>
     weapons.toSorted((a, b) => {
       const aCooldown = a.cooldown[a.tier - 1]
       const bCooldown = b.cooldown[b.tier - 1]
@@ -58,7 +58,7 @@ const sortMap = {
       }
       return a.nameText.localeCompare(b.nameText)
     }),
-  'Base damage': (weapons) =>
+  baseDamage: (weapons) =>
     weapons.toSorted((a, b) => {
       const aDamageBase = a.damageBase[a.tier - 1]
       const bDamageBase = b.damageBase[b.tier - 1]
@@ -67,7 +67,7 @@ const sortMap = {
       }
       return a.nameText.localeCompare(b.nameText)
     }),
-  'Base price': (weapons) =>
+  basePrice: (weapons) =>
     weapons.toSorted((a, b) => {
       const aPrice = a.price[a.tier - 1]
       const bPrice = b.price[b.tier - 1]
@@ -76,7 +76,7 @@ const sortMap = {
       }
       return a.nameText.localeCompare(b.nameText)
     }),
-  'Crit chance': (weapons) =>
+  critChance: (weapons) =>
     weapons.toSorted((a, b) => {
       const aCritChance = a.critChance[a.tier - 1]
       const bCritChance = b.critChance[b.tier - 1]
@@ -85,7 +85,7 @@ const sortMap = {
       }
       return a.nameText.localeCompare(b.nameText)
     }),
-  'Crit multiplier': (weapons) =>
+  critMultiplier: (weapons) =>
     weapons.toSorted((a, b) => {
       const aCritMultiplier = a.critMultiplier[a.tier - 1]
       const bCritMultiplier = b.critMultiplier[b.tier - 1]
@@ -94,7 +94,7 @@ const sortMap = {
       }
       return a.nameText.localeCompare(b.nameText)
     }),
-  'Damage scaling': (weapons) =>
+  damageScaling: (weapons) =>
     weapons.toSorted((a, b) => {
       const aDamageMultiplier = a.damageMultiplier[a.tier - 1].reduce(
         (acc, v) => acc + Math.abs(v),
@@ -109,11 +109,11 @@ const sortMap = {
       }
       return a.nameText.localeCompare(b.nameText)
     }),
-  Name: (weapons) =>
+  name: (weapons) =>
     weapons.toSorted((a, b) => {
       return a.nameText.localeCompare(b.nameText)
     }),
-  Range: (weapons) =>
+  range: (weapons) =>
     weapons.toSorted((a, b) => {
       const aRange = a.range[a.tier - 1]
       const bRange = b.range[b.tier - 1]
@@ -126,7 +126,7 @@ const sortMap = {
 
 const state = () => ({
   search: '',
-  ordering: 'Name',
+  ordering: { text: 'Name', value: 'name' },
   tier: { ...defaultTier },
   type: { ...defaultType },
   damageScalingInclusive: true,
@@ -206,7 +206,7 @@ const getters = {
     })
   },
   sortApplied: (state, getters) => {
-    return sortMap[state.ordering](getters.weaponClassesApplied)
+    return sortMap[state.ordering.value](getters.weaponClassesApplied)
   },
   searchApplied: (state, getters) => {
     return getters.sortApplied.filter(({ nameText }) =>

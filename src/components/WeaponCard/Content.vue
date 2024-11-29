@@ -11,12 +11,10 @@
           <p class="leading-8 text-xl font-bold">{{ nameText }}</p>
         </div>
         <div class="flex items-center gap-2">
-          <p
+          <Tag
             v-for="weaponClassName in props.weapon.weaponClasses"
-            class="leading-8 px-2 rounded bg-black/70"
-          >
-            {{ weaponClasses[weaponClassName].nameText }}
-          </p>
+            :text="weaponClasses[weaponClassName].nameText"
+          />
         </div>
       </div>
     </header>
@@ -47,7 +45,7 @@
 </template>
 
 <script setup>
-import { WeaponSprite } from '@/components'
+import { Tag, WeaponSprite } from '@/components'
 import Row from './Row.vue'
 import { weaponClasses } from '@/constants'
 import {
