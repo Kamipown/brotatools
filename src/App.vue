@@ -7,12 +7,13 @@
     <div :style="contentStyle">
       <RouterView />
     </div>
+    <WeaponClassTooltip />
     <WeaponDetails v-if="weaponDetails" :name="weaponDetails" />
   </div>
 </template>
 
 <script setup>
-import { Menu, WeaponDetails } from '@/components'
+import { Menu, WeaponClassTooltip, WeaponDetails } from '@/containers'
 
 const store = useStore()
 

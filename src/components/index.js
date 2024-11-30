@@ -4,7 +4,6 @@ import FilterMode from './FilterMode.vue'
 import Icon from './Icon.vue'
 import ItemCard from './ItemCard.vue'
 import ItemSprite from './ItemSprite.vue'
-import Menu from './Menu/index.vue'
 import Panel from './Panel.vue'
 import PanelSection from './PanelSection.vue'
 import PanelSeparator from './PanelSeparator.vue'
@@ -13,7 +12,7 @@ import Tag from './Tag.vue'
 import ToolBar from './ToolBar/index.vue'
 import TransitionAppear from './TransitionAppear.vue'
 import WeaponCard from './WeaponCard/index.vue'
-import WeaponDetails from './WeaponDetails/index.vue'
+import WeaponClassTag from './WeaponClassTag.vue'
 import WeaponSprite from './WeaponSprite.vue'
 
 export {
@@ -23,7 +22,6 @@ export {
   Icon,
   ItemCard,
   ItemSprite,
-  Menu,
   Panel,
   PanelSection,
   PanelSeparator,
@@ -32,6 +30,6 @@ export {
   ToolBar,
   TransitionAppear,
   WeaponCard,
-  WeaponDetails,
+  WeaponClassTag,
   WeaponSprite,
 }

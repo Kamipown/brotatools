@@ -11,9 +11,9 @@
           <p class="leading-8 text-xl font-bold">{{ nameText }}</p>
         </div>
         <div class="flex items-center gap-2">
-          <Tag
-            v-for="weaponClassName in props.weapon.weaponClasses"
-            :text="weaponClasses[weaponClassName].nameText"
+          <WeaponClassTag
+            v-for="name in props.weapon.weaponClasses"
+            :name="name"
           />
         </div>
       </div>
@@ -37,7 +37,6 @@
       <Row v-if="showPiercing" left="Piercing:" :right="piercing" />
     </div>
     <p class="px-3 py-2" v-html="props.weapon.effects[index]"></p>
-
     <p class="mt-auto p-3 font-semibold text-end">
       {{ props.weapon.price[index] }}<span class="material" />
     </p>
@@ -45,9 +44,8 @@
 </template>
 
 <script setup>
-import { Tag, WeaponSprite } from '@/components'
+import { WeaponClassTag, WeaponSprite } from '@/components'
 import Row from './Row.vue'
-import { weaponClasses } from '@/constants'
 import {
   getCooldownText,
   getCriticalText,

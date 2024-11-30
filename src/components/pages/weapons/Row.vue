@@ -13,9 +13,9 @@
       <div class="flex flex-col flex-[4] gap-1 pr-8">
         <p class="font-bold">{{ props.weapon.nameText }}</p>
         <div class="flex gap-2">
-          <Tag
-            v-for="weaponClass in props.weapon.weaponClasses"
-            :text="weaponClasses[weaponClass].nameText"
+          <WeaponClassTag
+            v-for="name in props.weapon.weaponClasses"
+            :name="name"
           />
         </div>
       </div>
@@ -29,8 +29,7 @@
 </template>
 
 <script setup>
-import { Tag, WeaponSprite } from '@/components'
-import { weaponClasses } from '@/constants'
+import { WeaponClassTag, WeaponSprite } from '@/components'
 import {
   getCooldownText,
   getCriticalText,

@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 
 import items from './items'
 import weapons from './weapons'
+import weaponClasses from './weaponClasses'
 
 const state = () => ({
   weaponDetails: '',
@@ -30,6 +31,7 @@ const store = createStore({
   modules: {
     items,
     weapons,
+    weaponClasses,
   },
 })
 
